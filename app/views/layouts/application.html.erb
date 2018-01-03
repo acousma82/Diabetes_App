@@ -1,7 +1,8 @@
+<%# application.html.erb is the basic html for all other html on the site%>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DiabetesApp</title>
+    <title><%= yield(:title) %> | My Diabetes Dairy App Ruby on Rails</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +10,7 @@
   </head>
 
   <body>
+  <%#This code is responsible for inserting the contents of each page into the layout%>
     <%= yield %>
   </body>
 </html>

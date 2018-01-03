@@ -10,4 +10,8 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  def bolus
+  end
+  
 end
