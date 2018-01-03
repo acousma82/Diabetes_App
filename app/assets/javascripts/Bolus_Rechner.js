@@ -1,14 +1,12 @@
 
 
 
-var uHr = document.getElementById("Uhrzeit");
+
 let dFakTni = 0.5; // d ungarische NOT für float/double
 let faKtmor = 1.3;
 let faKtnoon = 0.8;
 let fakTeven = 0.5;
-let beFaktor = document.getElementById("faktor");
-let fakAkt = document.getElementById("fakAkt");
-let fakNew = document.getElementById("fakNew")
+
 let d = new Date();
 let h = d.getHours();
 let m = d.getMinutes();
@@ -18,33 +16,36 @@ let uhrZeit = function zeit() {
     if (m < 10) { m = '0' + m; }
     return (h + ":" + m + " Uhr");
 }
-
+// Anzeige des Uhrzeitabhängigen BE-Faktors für den aktuellen Patienten sowie der aktuellen uhrzeit
+function timeFakt(){
+ let uHr = document.getElementById("Uhrzeit");
  uHr.innerHTML = "Es ist " + uhrZeit() + ".";
 
-// Anzeige des Uhrzeitabhängigen BE-Faktors für den aktuellen Patienten
-
-if (h > 20 || h < 6) {
-  
-    fakAkt.innerHTML = dFakTni.toString();
-}
-else if (h >= 6 && h < 11) {
+ let fakAkt = document.getElementById("fakAkt");
+ if (h > 20 || h < 6) {
    
-    fakAkt.innerHTML = faKtmor.toString();
+     fakAkt.innerHTML = dFakTni.toString();
+ }
+ else if (h >= 6 && h < 11) {
+    
+     fakAkt.innerHTML = faKtmor.toString();
+ }
+ 
+ else if (h >= 11 && h < 18) {
+    
+     fakAkt.innerHTML = faKtnoon.toString();
+ }
+ else if (h >= 18 && h <= 20) {
+    
+     fakAkt.innerHTML = fakTeven.toString();
+ };
 }
-
-else if (h >= 11 && h < 18) {
-   
-    fakAkt.innerHTML = faKtnoon.toString();
-}
-else if (h >= 18 && h <= 20) {
-   
-    fakAkt.innerHTML = fakTeven.toString();
-};
 
 // Möglichkeit den BE-faktor für die aktuell gegessenen BEs zu ändern
 
 function faktorAendern() {
-
+    let beFaktor = document.getElementById("faktor");
+    let fakNew = document.getElementById("fakNew")
     if (h > 20 || h < 6) {
 
      dFakTni = beFaktor.value;
