@@ -12,11 +12,17 @@ gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+#bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.
+gem 'bootstrap-sass',          '3.3.7'
+#will_paginate provides a simple API for performing paginated queries with Active Record, DataMapper and Sequel, 
+#and includes helpers for rendering pagination links in Rails, Sinatra and Merb web apps 
+gem 'will_paginate',           '3.1.6'
+# Hooks into will_paginate to format the html to match Twitter Bootstrap styling.
+gem 'bootstrap-will_paginate', '1.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -28,7 +34,17 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails', '4.3.1'
-
+# Use carrierwave for uploading images
+gem 'carrierwave',             '1.1.0'
+# Use mini-magick to automatically minimize pictures
+gem 'mini_magick',             '4.7.0'
+#Use fog-aws to use amazon web services in applications
+gem 'fog-aws',                 '2.0.0'
+#The GNU Readline library provides a set of functions for use by applications 
+#that allow users to edit command lines as they are typed in.
+#The Readline library includes additional functions to maintain a list of previously-entered command lines, 
+#to recall and perhaps reedit those lines, and perform csh-like history expansion on previous commands.
+gem 'rb-readline'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
