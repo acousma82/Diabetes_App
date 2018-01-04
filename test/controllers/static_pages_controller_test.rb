@@ -3,13 +3,19 @@ require 'test_helper'
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @base_title = "My Diabetes Dairy App Ruby on Rails"
+    @base_title = "My Diabetes Diary App Ruby on Rails"
   end
 
   test "should get root" do
     get root_url
     assert_response :success
     assert_select "title", "Home | #{@base_title}"
+  end
+  
+  test "should get bolus calculator" do
+    get static_pages_bolus_url
+    assert_response :success
+    assert_select "title", "Bolus Rechner | #{@base_title}"
   end
 
   test "should get home" do
