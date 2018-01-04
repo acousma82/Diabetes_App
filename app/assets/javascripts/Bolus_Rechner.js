@@ -1,7 +1,7 @@
 
 
 
-
+//Standar Data for a 3 Year old child
 let dFakTni = 0.5; // d ungarische NOT für float/double
 let faKtmor = 1.3;
 let faKtnoon = 0.8;
@@ -16,28 +16,32 @@ let uhrZeit = function zeit() {
     if (m < 10) { m = '0' + m; }
     return (h + ":" + m + " Uhr");
 }
+
+function time(){
+    let uHr = document.getElementById("Uhrzeit");
+    uHr.innerHTML = "Es ist " + uhrZeit() + ".";
+}
 // Anzeige des Uhrzeitabhängigen BE-Faktors für den aktuellen Patienten sowie der aktuellen uhrzeit
 function timeFakt(){
- let uHr = document.getElementById("Uhrzeit");
- uHr.innerHTML = "Es ist " + uhrZeit() + ".";
-
- let fakAkt = document.getElementById("fakAkt");
- if (h > 20 || h < 6) {
-   
-     fakAkt.innerHTML = dFakTni.toString();
- }
- else if (h >= 6 && h < 11) {
+    time()
     
-     fakAkt.innerHTML = faKtmor.toString();
- }
+    let beFaktor = document.getElementById("faktor");
+    if (h > 20 || h < 6) {
+     beFaktor.value = dFakTni;
+     
+    }
+    else if (h >= 6 && h < 11) {
+     beFaktor.value = faKtmor;
+    
+    }
  
- else if (h >= 11 && h < 18) {
-    
-     fakAkt.innerHTML = faKtnoon.toString();
- }
- else if (h >= 18 && h <= 20) {
-    
-     fakAkt.innerHTML = fakTeven.toString();
+    else if (h >= 11 && h < 18) {
+     beFaktor.value = faKtnoon;
+     
+    }
+    else if (h >= 18 && h <= 20) {
+        beFaktor.value = fakTeven;
+     
  };
 }
 
@@ -45,7 +49,7 @@ function timeFakt(){
 
 function faktorAendern() {
     let beFaktor = document.getElementById("faktor");
-    let fakNew = document.getElementById("fakNew")
+    
     if (h > 20 || h < 6) {
 
      dFakTni = beFaktor.value;
@@ -64,7 +68,7 @@ function faktorAendern() {
         fakTeven = beFaktor.value;
     };
 
-    fakNew.innerHTML = (beFaktor.value).toString();
+    
 };
 
 // Berechnung des benötigten Insulins für die eingegebene Menge an BEs

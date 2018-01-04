@@ -1,0 +1,90 @@
+<% provide(:title, "Bolus Rechner") %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title)%> | My Diabetes Diary App Ruby on Rails</title>
+  </head>
+  <body onload="timeFakt()">
+    <h1>My Diabetes Diary</h1>
+    <header>
+      
+            <h1 class="text-center">Bolus Rechner</h1>
+            <h4 class="text-center text-muted" id="Uhrzeit"></h4>
+       
+    </header>
+    <article>
+
+      <form class="">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-1 col-md-offset-2">
+
+
+              <label for="be">BE</label>
+            </div>
+            <div class="col-md-3">
+              <input type="number" id="be" class="form-control" name="be" />
+
+              <small id="be-info" class="form-text text-muted">
+              (Hier können Sie die gegessenen Kohlenhydrate in Broteinheiten eingeben.) 
+              </small>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="form-group" >
+
+          <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+              <label for="faktor">aktueller BE-Faktor </label>
+            </div>
+            <div class="col-md-3">
+              <input type="number" id="faktor" class="form-control" name="faktor" value="" />
+
+
+              <small id="faktor" class="form-text text-muted">
+                (Hier können Sie den aktuellen BE-Faktor ändern, wenn nötig.) 
+                </small>
+            </div>
+
+            <div class="col-md-2">
+              <button class="btn btn-sm btn-danger" type="button" onclick="faktorAendern()">BE-Faktor ändern</button>
+            </div>
+
+            <div class="col-md-3">
+
+            </div>
+
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-2 col-md-offset-3">
+            <button type="button" class="btn btn-primary btn-lg" onclick="insulinBerechnen()">Insulin berechnen</button>
+          </div>
+        </div>
+
+        <p> </p>
+        <div class="row">
+          <div class="col-md-5 col-md-offset-3">
+            <p class="lead bg-warning">
+
+              Sie müssen <strong id="insulin"></strong> U (Insulineinheiten) spritzen
+            </p>
+          </div>
+        </div>
+      </form>
+
+
+
+
+    </article>
+  </div>
+  <%= javascript_include_tag "Bolus_Rechner"%>
+  </body>
+
+</html>

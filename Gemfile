@@ -13,7 +13,8 @@ gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 #bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.
-gem 'bootstrap-sass',          '3.3.7'
+gem 'bootstrap'
+#gem 'bootstrap-sass',          '3.3.7'
 #will_paginate provides a simple API for performing paginated queries with Active Record, DataMapper and Sequel, 
 #and includes helpers for rendering pagination links in Rails, Sinatra and Merb web apps 
 gem 'will_paginate',           '3.1.6'
