@@ -55,7 +55,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  # Use sqlite3 as the database for Active Record
+  # Use sqlite3 as the database for Active Record in development
   gem 'sqlite3'
 end
 
@@ -77,6 +77,7 @@ end
 
 
 group :production do
+  #postgresql gem for deploying on heroku 
   gem 'pg', '0.18.4'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
