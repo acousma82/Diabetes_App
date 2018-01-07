@@ -21,9 +21,10 @@ function time(){
     let uHr = document.getElementById("Uhrzeit");
     uHr.innerHTML = "Es ist " + uhrZeit() + ".";
 }
-// Anzeige des Uhrzeitabhängigen BE-Faktors für den aktuellen Patienten sowie der aktuellen uhrzeit
-function timeFakt(){
-    time()
+// Anzeige des Uhrzeitabhängigen BE-Faktors für den aktuellen Patienten sowie der aktuellen uhrzeit document.addEventListener("turbolinks:load", 
+function timeFakt() {
+
+    time();
     
     let beFaktor = document.getElementById("faktor");
     if (h > 20 || h < 6) {
@@ -42,9 +43,10 @@ function timeFakt(){
     else if (h >= 18 && h <= 20) {
         beFaktor.value = fakTeven;
      
- };
-}
+ }
 
+};
+document.addEventListener("turbolinks:load", timeFakt);
 // Möglichkeit den BE-faktor für die aktuell gegessenen BEs zu ändern
 
 function faktorAendern() {

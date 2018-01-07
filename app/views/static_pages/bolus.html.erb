@@ -1,21 +1,19 @@
 <% provide(:title, "Bolus Rechner") %>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= full_title(yield(:title))%> | My Diabetes Diary App Ruby on Rails</title>
-  </head>
-  <body onload="timeFakt()">
-    <h1 class="text-center">My Diabetes Diary</h1>
-    <header>
+<%= javascript_include_tag "Bolus_Rechner"%>
+
+<body>
+           
+            <h1 class="text-center">My Diabetes Diary</h1>
+  
       
         
-            <h1 class="text-center">Bolus Rechner</h1>
+            <h2 class="text-center">Bolus Rechner</h1>
             <h4 class="text-center text-muted" id="Uhrzeit"></h4>
           
-      
-    </header>
-    <article>
+     
+    
+    
 
       <div class="container">
   <form>
@@ -56,9 +54,10 @@
       </div>
       </div>
   </form>
-  <%= javascript_include_tag "Bolus_Rechner"%>
   </body>
+  <head><%= javascript_include_tag "Bolus_Rechner"%></head>
 
-</html>
+
+
 
   
