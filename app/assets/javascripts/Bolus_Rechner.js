@@ -1,8 +1,8 @@
 
 
 
-//Standar Data for a 3 Year old child
-let dFakTni = 0.5; // d ungarische NOT für float/double
+//Standard Data for a 3 Year old child
+let dFakTni = 0.5; 
 let faKtmor = 1.3;
 let faKtnoon = 0.8;
 let fakTeven = 0.5;
@@ -12,7 +12,7 @@ let h = d.getHours();
 let m = d.getMinutes();
 
 let uhrZeit = function zeit() {
-    if (h < 10) { h = '0' + h; }
+    //if (h < 10) { h = '0' + h; }
     if (m < 10) { m = '0' + m; }
     return (h + ":" + m + " Uhr");
 }
@@ -21,7 +21,7 @@ function time(){
     let uHr = document.getElementById("Uhrzeit");
     uHr.innerHTML = "Es ist " + uhrZeit() + ".";
 }
-// Anzeige des Uhrzeitabhängigen BE-Faktors für den aktuellen Patienten sowie der aktuellen uhrzeit document.addEventListener("turbolinks:load", 
+// Displaying the Timebased carbohydrate Faktor (BE-Faktor) and the actual time inside the form and htmluhrzeit document.addEventListener("turbolinks:load", 
 function timeFakt() {
 
     time();
@@ -46,8 +46,8 @@ function timeFakt() {
  }
 
 };
-//document.addEventListener("turbolinks:load", timeFakt);
-// Möglichkeit den BE-faktor für die aktuell gegessenen BEs zu ändern
+document.addEventListener("turbolinks:load", timeFakt);
+// Possibiltiy to change the carbohydrate factor (BE Faktor)
 
 function faktorAendern() {
     let beFaktor = document.getElementById("faktor");
@@ -73,7 +73,7 @@ function faktorAendern() {
     
 };
 
-// Berechnung des benötigten Insulins für die eingegebene Menge an BEs
+// Calculation of the needed insulin for the amount of carbohydrates eaten
 
 function insulinBerechnen() {
 
