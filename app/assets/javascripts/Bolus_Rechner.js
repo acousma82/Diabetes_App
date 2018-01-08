@@ -2,47 +2,54 @@
 
 
 //Standard Data for a 3 Year old child
-let dFakTni = 0.5; 
-let faKtmor = 1.3;
-let faKtnoon = 0.8;
-let fakTeven = 0.5;
-let d = new Date();
-let h = d.getHours();
-let m = d.getMinutes();
 
 
-let uhrZeit = function zeit() {
-    
-    if (h < 10) { h = '0' + h; }
-    if (m < 10) { m = '0' + m; }
-    return (h + ":" + m + " Uhr");
+
+function currentMinutes(){
+    let date = new Date();
+    return date.getMinutes();
+}
+function currentHours(){
+    let date = new Date();
+    return date.getHours();
+}
+function time() {
+    let hours = currentHours()
+    let minutes = currentMinutes()
+    if (hours < 10) { hours = '0' + hours; }
+    if (minutes < 10) { minutes = '0' + minutes; }
+    return (hours + ":" + minutes + "Uhr");
 }
 
-function time(){
+function showTime(){
     let uHr = document.getElementById("Uhrzeit");
-    uHr.innerHTML = "Es ist " + uhrZeit() + ".";
+    uHr.innerHTML = "Es ist " + time() + ".";
 }
 // Displaying the Timebased carbohydrate Faktor (BE-Faktor) and the actual time inside the form and htmluhrzeit document.addEventListener("turbolinks:load", 
 function timeFakt() {
+    let hours = currentHours()
+    showTime();
+    let beFactorNight = 0.5; 
+    let beFactorMorning = 1.3;
+    let beFactorNoon = 0.8;
+    let beFactorEvening = 0.5;
 
-    time();
-    
-    let beFaktor = document.getElementById("faktor");
-    if (h > 20 || h < 6) {
-     beFaktor.value = dFakTni;
+    let beFactor = document.getElementById("faktor");
+    if (hours > 20 || hours < 6) {
+     beFactor.value = beFactorNight;
      
     }
-    else if (h >= 6 && h < 11) {
-     beFaktor.value = faKtmor;
+    else if (hours >= 6 && hours < 11) {
+     beFactor.value = beFactorMorning;
     
     }
  
-    else if (h >= 11 && h < 18) {
-     beFaktor.value = faKtnoon;
+    else if (hours >= 11 && hours < 18) {
+     beFactor.value = beFactorNoon;
      
     }
-    else if (h >= 18 && h <= 20) {
-        beFaktor.value = fakTeven;
+    else if (hours >= 18 && hours <= 20) {
+        beFactor.value = beFactorEvening;
      
  }
 
@@ -51,24 +58,28 @@ document.addEventListener("turbolinks:load", timeFakt);
 // Possibiltiy to change the carbohydrate factor (BE Faktor)
 
 function faktorAendern() {
+    let beFactorNight = 0.5; 
+    let beFactorMorning = 1.3;
+    let beFactorNoon = 0.8;
+    let beFactorEvening = 0.5;
     let beFaktor = document.getElementById("faktor");
-    
-    if (h > 20 || h < 6) {
+    let hours = currentHours()
+    if (hours > 20 || hours < 6) {
 
-     dFakTni = beFaktor.value;
+        beFactorNight = beFaktor.value;
     }
-    else if (h >= 6 && h < 11) {
+    else if (hours >= 6 && hours < 11) {
 
-        faKtmor = beFaktor.value;
+        beFactorMorning = beFaktor.value;
     }
 
-    else if (h >= 11 && h < 18) {
+    else if (hours >= 11 && hours < 18) {
 
-        faKtnoon = beFaktor.value;
+        beFactorNoon = beFaktor.value;
     }
-    else if (h >= 18 && h <= 20) {
+    else if (hours >= 18 && hours <= 20) {
 
-        fakTeven = beFaktor.value;
+        beFactorEvening = beFaktor.value;
     };
 
     
@@ -77,28 +88,32 @@ function faktorAendern() {
 // Calculation of the needed insulin for the amount of carbohydrates eaten
 
 function insulinBerechnen() {
-
+    let beFaktor = document.getElementById("faktor");
+    let beFactorNight = 0.5; 
+    let beFactorMorning = 1.3;
+    let beFactorNoon = 0.8;
+    let beFactorEvening = 0.5;
     let eat = document.getElementById("be").value;
     let uLin = document.getElementById("insulin");
-    let prod1 = (eat * dFakTni).toFixed(2);
-    let prod2 = (eat * faKtmor).toFixed(2);
-    let prod3 = (eat * faKtnoon).toFixed(2);
-    let prod4 = (eat * fakTeven).toFixed(2);
-
-    if (h > 20 || h < 6) {
+    let prod1 = (eat * beFactorNight).toFixed(2);
+    let prod2 = (eat * beFactorMorning).toFixed(2);
+    let prod3 = (eat * beFactorNoon).toFixed(2);
+    let prod4 = (eat * beFactorEvening).toFixed(2);
+    let hours = currentHours()
+    if (hours > 20 || hours < 6) {
 
         uLin.innerHTML = prod1.toString();
     }
-    else if (h >= 6 && h < 11) {
+    else if (hours >= 6 && hours < 11) {
 
         uLin.innerHTML = prod2.toString();
     }
 
-    else if (h >= 11 && h < 18) {
+    else if (hours >= 11 && hours < 18) {
 
         uLin.innerHTML = prod3.toString();
     }
-    else if (h >= 18 && h <= 20) {
+    else if (hours >= 18 && hours <= 20) {
 
         uLin.innerHTML = prod4.toString();
     };
