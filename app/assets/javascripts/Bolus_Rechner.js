@@ -46,6 +46,7 @@ function timeFakt() {
  }
 
 };
+//not the optimum solution. No idea how to get it to work with turbolinks in another way though
 document.addEventListener("turbolinks:load", timeFakt);
 // Möglichkeit den BE-faktor für die aktuell gegessenen BEs zu ändern
 
