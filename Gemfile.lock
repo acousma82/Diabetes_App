@@ -252,7 +252,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt (~> 3.1.7)
+  bcrypt
   bootstrap
   bootstrap-will_paginate (= 1.0.0)
   byebug
