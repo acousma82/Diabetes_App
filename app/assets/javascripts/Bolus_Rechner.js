@@ -89,33 +89,34 @@ function faktorAendern() {
 
 function insulinBerechnen() {
     let beFaktor = document.getElementById("faktor");
-    let beFactorNight = 0.5; 
-    let beFactorMorning = 1.3;
-    let beFactorNoon = 0.8;
-    let beFactorEvening = 0.5;
+     
+    
+   
     let eat = document.getElementById("be").value;
     let uLin = document.getElementById("insulin");
-    let prod1 = (eat * beFactorNight).toFixed(2);
-    let prod2 = (eat * beFactorMorning).toFixed(2);
-    let prod3 = (eat * beFactorNoon).toFixed(2);
-    let prod4 = (eat * beFactorEvening).toFixed(2);
+    
+    
     let hours = currentHours()
     if (hours > 20 || hours < 6) {
-
-        uLin.innerHTML = prod1.toString();
+        if (beFaktor.value === ""){beFactorNight = 0.5}
+        else {beFactorNight = beFaktor.value};
+        uLin.innerHTML = (eat * beFactorNight).toFixed(2).toString();
     }
     else if (hours >= 6 && hours < 11) {
-
-        uLin.innerHTML = prod2.toString();
+        if (beFaktor.value === ""){beFactorMorning = 1.3}
+        else {beFactorMorning = beFaktor.value};
+        uLin.innerHTML = (eat * beFactorMorning).toFixed(2).toString();
     }
 
     else if (hours >= 11 && hours < 18) {
-
-        uLin.innerHTML = prod3.toString();
+        if (beFaktor.value === ""){beFactorNoon = 0.8}
+        else {beFactorNoon = beFaktor.value};
+        uLin.innerHTML = (eat * beFactorNoon).toFixed(2).toString();
     }
     else if (hours >= 18 && hours <= 20) {
-
-        uLin.innerHTML = prod4.toString();
+        if (beFaktor.value === ""){beFactorEvening = 0.8}
+        else {beFactorEvening = beFaktor.value};
+        uLin.innerHTML = (eat * beFactorEvening).toFixed(2).toString();
     };
 
 };
