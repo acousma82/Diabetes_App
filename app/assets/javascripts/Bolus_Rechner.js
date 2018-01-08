@@ -46,7 +46,7 @@ function timeFakt() {
  }
 
 };
-document.addEventListener("turbolinks:load", timeFakt);
+//document.addEventListener("turbolinks:load", timeFakt);
 // Möglichkeit den BE-faktor für die aktuell gegessenen BEs zu ändern
 
 function faktorAendern() {
