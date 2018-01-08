@@ -6,13 +6,14 @@ let dFakTni = 0.5;
 let faKtmor = 1.3;
 let faKtnoon = 0.8;
 let fakTeven = 0.5;
-
 let d = new Date();
 let h = d.getHours();
 let m = d.getMinutes();
 
+
 let uhrZeit = function zeit() {
-    //if (h < 10) { h = '0' + h; }
+    
+    if (h < 10) { h = '0' + h; }
     if (m < 10) { m = '0' + m; }
     return (h + ":" + m + " Uhr");
 }
