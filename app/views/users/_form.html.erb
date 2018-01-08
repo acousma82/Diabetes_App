@@ -1,0 +1,18 @@
+<%# the code (instance_variable_defined?(:@replace_form_path)? {signup_path}) is necessary because the form partial is used by our app as the signup form and the edit form in the controller. Inside the User.new action the replace_form_path instance variable is defined and set to true so the form knows that it should post to the signup path when rendered inside the new template. Right now it still would work without the signup_path because post "/users"   is still a route  in routes.rb which leads to users#create%>
+<%= form_for @user, (instance_variable_defined?(:@replace_form_path) ? {url: signup_path} : {}) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
