@@ -23,6 +23,7 @@ function time() {
 
 function showTime(){
     let uHr = document.getElementById("Uhrzeit");
+    if (uHr === null){return}
     uHr.innerHTML = "Es ist " + time() + ".";
 }
 // Displaying the Timebased carbohydrate Faktor (BE-Faktor) and the actual time inside the form and htmluhrzeit document.addEventListener("turbolinks:load", 
@@ -35,6 +36,7 @@ function timeFakt() {
     let beFactorEvening = 0.5;
 
     let beFactor = document.getElementById("faktor");
+    if (beFactor === null){return}
     if (hours > 20 || hours < 6) {
      beFactor.value = beFactorNight;
      
@@ -63,6 +65,7 @@ function faktorAendern() {
     let beFactorNoon = 0.8;
     let beFactorEvening = 0.5;
     let beFaktor = document.getElementById("faktor");
+    if (beFaktor === null){return}
     let hours = currentHours()
     if (hours > 20 || hours < 6) {
 
@@ -89,7 +92,7 @@ function faktorAendern() {
 
 function insulinBerechnen() {
     let beFaktor = document.getElementById("faktor");
-     
+    if (beFaktor === null){return} 
     
    
     let eat = document.getElementById("be").value;
