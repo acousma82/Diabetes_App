@@ -1,10 +1,3 @@
-
-
-
-//Standard Data for a 3 Year old child
-
-
-
 function currentMinutes(){
     let date = new Date();
     return date.getMinutes();
@@ -23,19 +16,21 @@ function time() {
 
 function showTime(){
     let uHr = document.getElementById("Uhrzeit");
+    //checking if the id exists on the page
     if (uHr === null){return}
     uHr.innerHTML = "Es ist " + time() + ".";
 }
-// Displaying the Timebased carbohydrate Faktor (BE-Faktor) and the actual time inside the form and htmluhrzeit document.addEventListener("turbolinks:load", 
+// Displaying the Timebased carbohydrate Faktor (BE-Faktor) and the actual time inside the form and html
 function timeFakt() {
-    let hours = currentHours()
     showTime();
+    let hours = currentHours()
     let beFactorNight = 0.5; 
     let beFactorMorning = 1.3;
     let beFactorNoon = 0.8;
     let beFactorEvening = 0.5;
 
     let beFactor = document.getElementById("faktor");
+    //checking if the id exists on the page
     if (beFactor === null){return}
     if (hours > 20 || hours < 6) {
      beFactor.value = beFactorNight;
@@ -57,48 +52,24 @@ function timeFakt() {
 
 };
 document.addEventListener("turbolinks:load", timeFakt);
-// Possibiltiy to change the carbohydrate factor (BE Faktor)
-
-function faktorAendern() {
-    let beFactorNight = 0.5; 
-    let beFactorMorning = 1.3;
-    let beFactorNoon = 0.8;
-    let beFactorEvening = 0.5;
-    let beFaktor = document.getElementById("faktor");
-    if (beFaktor === null){return}
-    let hours = currentHours()
-    if (hours > 20 || hours < 6) {
-
-        beFactorNight = beFaktor.value;
-    }
-    else if (hours >= 6 && hours < 11) {
-
-        beFactorMorning = beFaktor.value;
-    }
-
-    else if (hours >= 11 && hours < 18) {
-
-        beFactorNoon = beFaktor.value;
-    }
-    else if (hours >= 18 && hours <= 20) {
-
-        beFactorEvening = beFaktor.value;
-    };
-
-    
-};
 
 // Calculation of the needed insulin for the amount of carbohydrates eaten
 
 function insulinBerechnen() {
-    let beFaktor = document.getElementById("faktor");
-    if (beFaktor === null){return} 
-    
-   
+    //Form validation and checking if the ids exist on the page
     let eat = document.getElementById("be").value;
+    if( eat <= 0){
+        alert("If the carbs you ate are zero or below you don't need any insulin"); 
+        return};
+    let beFaktor = document.getElementById("faktor");
+    if (beFaktor === null){return};
+    if( beFaktor.value <= 0){
+        alert("Enter a Valid factor bigger than 0"); 
+        return};
+   
     let uLin = document.getElementById("insulin");
     
-    
+    //calculating the Insulin according to the time of day
     let hours = currentHours()
     if (hours > 20 || hours < 6) {
         if (beFaktor.value === ""){beFactorNight = 0.5}
