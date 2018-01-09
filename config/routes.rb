@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     delete '/logout',  to: 'sessions#destroy'
     #the member method arranges for the routes to respond to URLs containing the user id.
     #this code creates /users/[user_id]/following and /users/[user_id]/followers path
-    resources :users #do
+    resources :users, except: :new #do
       #member do
         #get :following, :followers
       #end
