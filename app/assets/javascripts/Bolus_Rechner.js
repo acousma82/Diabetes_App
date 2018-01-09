@@ -51,7 +51,7 @@ function timeFakt() {
  }
 
 };
-document.addEventListener("turbolinks:load", timeFakt);
+window.addEventListener("turbolinks:load", timeFakt);
 
 // Calculation of the needed insulin for the amount of carbohydrates eaten
 
@@ -59,7 +59,7 @@ function insulinBerechnen() {
     //Form validation and checking if the ids exist on the page
     let eat = document.getElementById("be").value;
     if( eat <= 0){
-        alert("If the carbs you ate are zero or below you don't need any insulin"); 
+        alert("If the carbs you ate are zero or below you don't need any insulin ;-)"); 
         return};
     let beFaktor = document.getElementById("faktor");
     if (beFaktor === null){return};
