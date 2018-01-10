@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     #before filter
-      before_action :logged_in_user, only: [:edit, :update, :destroy] 
+      before_action :logged_in_user, only: [:show, :edit, :update, :destroy] 
     
       before_action :correct_user,   only: [:show, :edit, :update]
       before_action :admin_user,     only: [:index, :destroy]
@@ -8,11 +8,12 @@ class UsersController < ApplicationController
     
     #User.paginate(available via the will-paginate gem) pulls the users out of the database one chunk at a time (30 by default), based on the :page parameter. So, for example, page 1 is users 1–30, page 2 is users 31–60, etc. If page is nil, paginate simply returns the first page.Here the page parameter comes from params[:page], which is generated automatically by will_paginate inside the view.
   def index
-    @users = User.where(activated: true).paginate(page: params[:page]) 
+    @users = User.paginate(page: params[:page]) 
   end
   
   def new
     @user = User.new
+    @replace_form_path = true
   end
 
   def show
@@ -46,7 +47,11 @@ class UsersController < ApplicationController
     end
   end
 
-  
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
+  end
 private
 
     def user_params
@@ -57,10 +62,13 @@ private
       # Before filters
 
     
-      # Confirms the correct (logged-in) user
+      # Confirms the correct (logged-in) user. the admin is always the correct user.
       def correct_user
         @user = User.find(params[:id])
-        redirect_to(root_url) and flash[:danger] = "It is not possible to access other users diaries" unless current_user?(@user)
+        unless current_user?(@user) || current_user.admin?
+          flash[:danger] = "It is not possible to access other users diaries"
+          redirect_to(root_url) 
+        end  
         
       end
 

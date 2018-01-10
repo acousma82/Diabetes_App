@@ -20,7 +20,9 @@
             <%= link_to "Bolus Rechner",  bolus_path, :class => "nav-link" %>
           </li>
           <% if logged_in? %>
+              <% if current_user.admin? %>
                 <li class="nav-item"><%= link_to "Users", users_path, :class => "nav-link"%></li>
+                <% end %>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" >
                     Account 

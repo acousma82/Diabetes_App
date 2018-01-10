@@ -13,14 +13,14 @@ Rails.application.routes.draw do
     get  '/contact', to: 'static_pages#contact'
     get '/bolus',  to: 'static_pages#bolus'
     get  '/signup',  to: 'users#new'
-    get  '/users',   to: 'users#index'
     post '/signup',  to: 'users#create'
+    get  '/users',   to: 'users#index'
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
     delete '/logout',  to: 'sessions#destroy'
     #the member method arranges for the routes to respond to URLs containing the user id.
     #this code creates /users/[user_id]/following and /users/[user_id]/followers path
-    resources :users, except: :new #do
+    resources :users, except: [:new, :create]#do
       #member do
         #get :following, :followers
       #end
