@@ -135,7 +135,19 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
 
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
 
 /* miscellaneous */
 
@@ -182,3 +194,4 @@ aside {
 .gravatar_edit {
   margin-top: 15px;
 }
+
