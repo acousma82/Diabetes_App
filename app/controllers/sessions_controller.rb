@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create 
    @user = User.find_by(email: params[:session][:email].downcase) #holt den user aus der Datenbank mit Hilfe der eingegbenen E-MAil Adresse
    
-   if @user && @user.authenticate(params[:session][:password]) #schaut ob das eingegeben passwort mit dem gespeicherten passwort übereinstimmt, diese aktion wird nur aufgerufen, wenn der user existiert
+   if @user && @user.activated? && @user.authenticate(params[:session][:password]) #schaut ob das eingegeben passwort mit dem gespeicherten passwort übereinstimmt, diese aktion wird nur aufgerufen, wenn der user existiert
 
 #if @user.activated?
         log_in @user

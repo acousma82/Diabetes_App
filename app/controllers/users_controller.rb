@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     
     #User.paginate(available via the will-paginate gem) pulls the users out of the database one chunk at a time (30 by default), based on the :page parameter. So, for example, page 1 is users 1–30, page 2 is users 31–60, etc. If page is nil, paginate simply returns the first page.Here the page parameter comes from params[:page], which is generated automatically by will_paginate inside the view.
   def index
-    @users = User.paginate(page: params[:page]) 
+    @users = User.where(activated: true).paginate(page: params[:page]) 
   end
   
   def new
@@ -16,8 +16,20 @@ class UsersController < ApplicationController
     @replace_form_path = true
   end
 
+  def create
+    @user = User.new(user_params)   
+    if @user.save
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+    else
+      render 'new'
+    end
+  end
+
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
   end
 
   def edit
@@ -36,16 +48,8 @@ class UsersController < ApplicationController
   end
   
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      log_in @user
-      flash[:success] = "Welcome to Your Diabetes Diary"
-      redirect_to @user
-    else
-      render 'new'
-    end
-  end
+  
+
 
   def destroy
     User.find(params[:id]).destroy

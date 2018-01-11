@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
+gem 'faker'
 gem 'jquery-rails', '4.3.1'
 # Use carrierwave for uploading images
 gem 'carrierwave',             '1.1.0'

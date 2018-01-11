@@ -18,18 +18,10 @@ Rails.application.routes.draw do
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
     delete '/logout',  to: 'sessions#destroy'
-    #the member method arranges for the routes to respond to URLs containing the user id.
-    #this code creates /users/[user_id]/following and /users/[user_id]/followers path
-    resources :users, except: [:new, :create]#do
-      #member do
-        #get :following, :followers
-      #end
-    #end
-  
+    resources :users, except: [:new]
     resources :account_activations, only: [:edit]
     resources :password_resets,     only: [:new, :create, :edit, :update]
-    #resources :microposts,          only: [:create, :destroy]
-    #resources :relationships,       only: [:create, :destroy]
+   
   
   
 
