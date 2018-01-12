@@ -49,7 +49,7 @@ before_action :check_expiration, only: [:edit, :update]
       @user = User.find_by(email: params[:email])
     end
 
-    # Confirms a valid user.
+    # Confirms a valid user. calls the authenticated method with a reset digest.
     def valid_user
       unless (@user && @user.activated? &&
               @user.authenticated?(:reset, params[:id]))
