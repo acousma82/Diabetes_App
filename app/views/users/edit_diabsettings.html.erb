@@ -1,6 +1,17 @@
 <%#= javascript_include_tag "new_Patient_new_akt_newtry"%>
 <% provide(:title, "Diabetes Settings") %>
-<% provide(:button_text, "Update Diabetes Settings") %>
+
+<% provide(:button_text, "Update BU-Factors") %>
+
+<h1 class="text-center">Diabetes Settings</h1>
+
+  <button class="btn btn-success diabsetbutton" type="button" data-toggle="collapse" data-target="#collapseBU" aria-expanded="false" aria-controls="collapseExample">
+    Edit Carbohydrate-Factors
+  </button>
+
+<div class="collapse" id="collapseBU">
+  <div class="card card-body">
+  <h2 class="text-center">Carbohydrate(BU)-Factors</h2>
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
@@ -83,3 +94,29 @@
 
 
 
+  </div>
+</div>
+<article>
+<p>
+<button class="btn btn-success diabsetbutton" type="button" data-toggle="collapse" data-target="#collapseBS" aria-expanded="false" aria-controls="collapseExample">
+    Edit Blood Sugar Target Range
+  </button>
+
+<div class="collapse" id="collapseBS">
+  <div class="card card-body">
+  <h2 class="text-center">Blood Sugar Target Range</h2>
+  </div>
+  </div>
+  </p>
+  </article>
+  
+<button class="btn btn-success diabsetbutton" type="button" data-toggle="collapse" data-target="#collapseCF" aria-expanded="false" aria-controls="collapseExample">
+    Edit Correction Factor
+  </button>
+
+<div class="collapse" id="collapseCF">
+  <div class="card card-body">
+  <h2 class="text-center">Blood Sugar Correction Factor</h2>
+  </div>
+  </div>
+  

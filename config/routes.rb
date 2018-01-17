@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     post '/signup',  to: 'users#create'
     get  '/users',   to: 'users#index'
     get '/users/bolus', to: 'users#bolus'
-    get 'users/:id/edit/diabsettings', to: 'users#edit_diabsettings'
+    get 'users/:id/edit/diabsettings', to: 'users#edit_diabsettings', as: :edit_diabsettings
+    get 'users/get_time'
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
     delete '/logout',  to: 'sessions#destroy'

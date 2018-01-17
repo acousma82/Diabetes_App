@@ -5,7 +5,10 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
+        
       </h1>
     </section>
+    <section>
+    <h2> It is <%= Time.now.strftime("%H:%M:%S")%></h2>
   </aside>
 </div>

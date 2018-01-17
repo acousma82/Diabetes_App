@@ -65,6 +65,11 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def get_time
+    @time = Time.now.strftime("%H:%M:%S ")
+    render partial: "shared/date"
+  end
+
 private
 
     def user_params
