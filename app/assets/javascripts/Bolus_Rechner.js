@@ -1,4 +1,4 @@
-
+$(window).on("turbolinks:load", timeFakt);
 function currentMinutes(){
     let date = new Date();
     return date.getMinutes();
@@ -54,7 +54,7 @@ function timeFakt() {
     let beFactor = document.getElementById("faktor");
     //checking if the id exists on the page
     if (beFactor === null){return};
-    console.log(factorJson);
+   
     
     switch (hours) {
 
@@ -133,7 +133,7 @@ function timeFakt() {
       }
     
 };
-window.addEventListener("turbolinks:load", timeFakt);
+
 
 // Calculation of the needed insulin for the amount of carbohydrates eaten
 
