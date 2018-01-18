@@ -1,0 +1,9 @@
+<li>
+  <%= gravatar_for user, size: 50 %>
+  <%= link_to user.name, user %>
+
+ <% if current_user.admin? && !current_user?(user) %> <%# wenn der current_user der admin ist, und der  user nicht der admin ist dann stelle für den user einen delete link zur Verfügung. Zweiter teil der If BEdingung ist da damit der Admin-user der löscht sich nicht selber löschen kann.%>
+         <%= link_to "delete", user, class: "delete", method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+</li>

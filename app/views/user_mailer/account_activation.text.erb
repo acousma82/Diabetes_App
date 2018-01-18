@@ -1,0 +1,5 @@
+Hi <% @user.name %>
+
+Welcome to My Diabetes Diary! Click on the link below to click on Your account:
+<%= edit_account_activation_url(@user.activation_token, 
+                                                    email: @user.email) %>

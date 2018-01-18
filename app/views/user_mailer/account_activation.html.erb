@@ -1,0 +1,7 @@
+<h1>My Diabetes Diary</h1>
+<p>Hi <%= @user.name%></p>
+<p>
+  Welcome to My Diabetes Diary! Click on the link below to click on Your account:
+</p>
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, 
+                                                    email: @user.email) %>
