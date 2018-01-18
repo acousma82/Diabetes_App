@@ -23,7 +23,12 @@ function showTime(){
 // Displaying the Timebased carbohydrate Faktor (BE-Faktor) and the actual time inside the form and html
 function timeFakt() {
     showTime();
-    let hours = currentHours()
+   
+    bu_json = gon.bu_factors
+    if (bu_json === null){return};
+    let factorJson = JSON.parse(gon.bu_factors);
+
+    let hours = currentHours();
     let beFactorNight = 0.5; 
     let beFactorMorning = 1.3;
     let beFactorNoon = 0.8;
@@ -41,8 +46,8 @@ function timeFakt() {
     
     }
  
-    else if (hours >= 11 && hours < 18) {
-     beFactor.value = beFactorNoon;
+    else if (hours === 15) {
+     beFactor.value = factorJson.fifteen_till_sixteen;
      
     }
     else if (hours >= 18 && hours <= 20) {

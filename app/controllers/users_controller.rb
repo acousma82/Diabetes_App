@@ -48,6 +48,8 @@ class UsersController < ApplicationController
   end
   
   def bolus
+    @bu_factors = current_user.serializable_hash.except("id", "name", "email","created_at",                                                                         "updated_at", "password_digest",                                                                          "remember_digest","activation_digest",                                                                    "admin", "activated","activated_at",                                                                           "reset_digest", "reset_sent_at")
+    gon.bu_factors = @bu_factors.to_json
   end
 
   def edit_diabsettings
