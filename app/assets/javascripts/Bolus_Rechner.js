@@ -46,19 +46,18 @@ function showTime(){
 }
 // Displaying the Timebased carbohydrate Faktor (BE-Faktor) and the actual time inside the form and html
 function timeFakt() {
-    showTime();
-   
+    showTime(); 
     bu_json = gon.bu_factors
     if (bu_json == null) {return};
     let factorJson = JSON.parse(gon.bu_factors);
-
     let hours = currentHours();
-    
-
     let beFactor = document.getElementById("faktor");
     //checking if the id exists on the page
-    if (beFactor === null){return}
+    if (beFactor === null){return};
+    console.log(factorJson);
+    
     switch (hours) {
+
         case 0:
             beFactor.value = factorJson.zero_till_one;
             break;
@@ -117,7 +116,7 @@ function timeFakt() {
             beFactor.value = factorJson.eightteen_till_nineteen;
             break;
         case 19:
-            beFactor.value = factorJson.ninetteen_till_twenty;
+            beFactor.value = factorJson.nineteen_till_twenty;
             break;
         case 20:
             beFactor.value = factorJson.twenty_till_twentyone;
