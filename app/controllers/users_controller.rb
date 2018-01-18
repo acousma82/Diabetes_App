@@ -66,7 +66,7 @@ class UsersController < ApplicationController
   end
 
   def get_time
-    @time = Time.now.strftime("%H:%M:%S ")
+    @time = Time.now.strftime("%H:%M Uhr")
     render partial: "shared/date"
   end
 

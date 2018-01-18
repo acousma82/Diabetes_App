@@ -8,7 +8,95 @@
         
       </h1>
     </section>
+    </div>
+    </aside>
     <section>
-    <h2> It is <%= Time.now.strftime("%H:%M:%S")%></h2>
-  </aside>
-</div>
+    <h2> BU Factors </h2>
+    <div class="row">
+    <div class="col-md-3">
+    <table class="table table-dark">
+    <h4 class="text-center">Night</h4>
+  <thead>
+    <tr>
+     
+       <th scope="col">Time</th>
+       <th scope="col">BU Factor</th>
+      
+    </tr>
+  </thead>
+    <tbody>
+    <tr>
+      
+      <td>0h  -  1h</td>
+      <td><%= @user.zero_till_one %></td>
+    </tr>
+    <tr>
+      
+      <td>1h  -  2h</td>
+      <td><%= @user.one_till_two %></td>
+    </tr>
+    <tr>
+      
+      <td>2h - 3h</td>
+      <td><%= @user.two_till_three %></td>
+    </tr>
+    <tr>
+      
+      <td>3h - 4h</td>
+      <td><%= @user.three_till_four %></td>
+    </tr>
+    <tr>
+      
+      <td>4h - 5h</td>
+      <td><%= @user.four_till_five %></td>
+    </tr>
+    <tr>
+      
+      <td>5h - 6h</td>
+      <td><%= @user.five_till_six %></td>
+      
+    </tr>
+    </table>
+    </div>
+<div class="col-md-3">
+<table class="table table-dark">
+<h4 class="text-center">Morning</h4>
+  <thead>
+    <tr>
+       <th scope="col">Time</th>
+       <th scope="col">BU Factor</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+      <td>6h - 7h</td>
+      <td><%= @user.three_till_four %></td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>  
+   
+    <p>4h  -  5h: <%= @user.four_till_five %></p>
+    <p>5h  -  6h: <%= @user.five_till_six %></p>
+    <p>6h  -  7h: <%= @user.six_till_seven %></p>
+    <p>7h  -  8h: <%= @user.seven_till_eight %></p>
+    <p>8h  -  9h: <%= @user.eight_till_nine %></p>
+    <p>9h  - 10h: <%= @user.nine_till_ten %></p>
+    <p>10h - 11h: <%= @user.ten_till_eleven %></p>
+    <p>11h - 12h: <%= @user.eleven_till_twelve %></p>
+    <p>12h - 13h: <%= @user.twelve_till_thirteen %></p>
+    <p>13h - 14h: <%= @user.thirteen_till_fourteen %></p>
+    <p>15h - 16h: <%= @user.fourteen_till_fifteen %></p>
+    <p>16h - 17h: <%= @user.fifteen_till_sixteen %></p>
+    <p>17h - 18h: <%= @user.sixteen_till_seventeen %></p>
+    <p>18h - 19h: <%= @user.seventeen_till_eightteen %></p>
+    <p>19h - 20h: <%= @user.eightteen_till_nineteen %></p>
+    <p>20h - 21h: <%= @user.nineteen_till_twenty %></p>
+    <p>21h - 22h: <%= @user.twenty_till_twentyone %></p>
+    <p>22h - 23h: <%= @user.twentyone_till_twentytwo %></p>
+    <p>23h -  0h: <%= @user.twentytwo_till_twentythree %></p>
+    
+
+    
+    </section>
