@@ -1,11 +1,181 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-sm-4">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
+        
       </h1>
     </section>
-  </aside>
-</div>
+    </div>
+    </aside>
+    <section>
+    <h2> BU Factors </h2>
+    <div class="row">
+    <div class="col-sm-3">
+    <table class="table table-dark">
+    <h4 class="text-center">Night</h4>
+  <thead>
+    <tr>
+     
+       <th scope="col">Time</th>
+       <th scope="col">BU Factor</th>
+      
+    </tr>
+  </thead>
+    <tbody>
+    <tr>
+      
+      <td>0h  -  1h</td>
+      <td><%= @user.zero_till_one %></td>
+    </tr>
+    <tr>
+      
+      <td>1h  -  2h</td>
+      <td><%= @user.one_till_two %></td>
+    </tr>
+    <tr>
+      
+      <td>2h - 3h</td>
+      <td><%= @user.two_till_three %></td>
+    </tr>
+    <tr>
+      
+      <td>3h - 4h</td>
+      <td><%= @user.three_till_four %></td>
+    </tr>
+    <tr>
+      
+      <td>4h - 5h</td>
+      <td><%= @user.four_till_five %></td>
+    </tr>
+    <tr>
+      
+      <td>5h - 6h</td>
+      <td><%= @user.five_till_six %></td>
+      
+    </tr>
+    </table>
+    </div>
+<div class="col-sm-3">
+<table class="table table-dark">
+<h4 class="text-center">Morning</h4>
+  <thead>
+    <tr>
+       <th scope="col">Time</th>
+       <th scope="col">BU Factor</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+      <td>6h - 7h</td>
+      <td><%= @user.six_till_seven %></td>
+    </tr>
+    <tr>
+      <td>7h - 8h</td>
+      <td><%= @user.seven_till_eight %></td>
+    </tr>
+    <tr>
+      <td>8h - 9h</td>
+      <td><%= @user.eight_till_nine %></td>
+    </tr>
+    <tr>
+      <td>9h - 10h</td>
+      <td><%= @user.nine_till_ten %></td>
+    </tr>
+    <tr>
+      <td>10h - 11h</td>
+      <td><%= @user.ten_till_eleven %></td>
+    </tr>
+    <tr>
+      <td>11h - 12h</td>
+      <td><%= @user.eleven_till_twelve %></td>
+    </tr>
+
+    </tbody>
+    </table>
+    </div>
+<div class="col-sm-3">
+<table class="table table-dark">
+<h4 class="text-center">Noon</h4>
+  <thead>
+    <tr>
+       <th scope="col">Time</th>
+       <th scope="col">BU Factor</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+      <td>12h - 13h</td>
+      <td><%= @user.twelve_till_thirteen %></td>
+    </tr>
+    <tr>
+      <td>13h - 14h</td>
+      <td><%= @user.thirteen_till_fourteen %></td>
+    </tr>
+    <tr>
+      <td>14h - 15h</td>
+      <td><%= @user.fourteen_till_fifteen %></td>
+    </tr>
+    <tr>
+      <td>15h - 16h</td>
+      <td><%= @user.fifteen_till_sixteen %></td>
+    </tr>
+    <tr>
+      <td>16h - 17h</td>
+      <td><%= @user.sixteen_till_seventeen %></td>
+    </tr>
+    <tr>
+      <td>17h - 18h</td>
+      <td><%= @user.seventeen_till_eightteen %></td>
+    </tr>
+
+    </tbody>
+    </table>
+    </div>
+
+    <div class="col-sm-3">
+<table class="table table-dark">
+<h4 class="text-center">Evening</h4>
+  <thead>
+    <tr>
+       <th scope="col">Time</th>
+       <th scope="col">BU Factor</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+      <td>18h - 19h</td>
+      <td><%= @user.eightteen_till_nineteen %></td>
+    </tr>
+    <tr>
+      <td>19h - 20h</td>
+      <td><%= @user.nineteen_till_twenty %></td>
+    </tr>
+    <tr>
+      <td>20h - 21h</td>
+      <td><%= @user.twenty_till_twentyone %></td>
+    </tr>
+    <tr>
+      <td>21h - 22h</td>
+      <td><%= @user.twentyone_till_twentytwo %></td>
+    </tr>
+    <tr>
+      <td>22h - 23h</td>
+      <td><%= @user.twentytwo_till_twentythree %></td>
+    </tr>
+    <tr>
+      <td>23h - 0h</td>
+      <td><%= @user.twentythree_till_zero %></td>
+    </tr>
+
+    </tbody>
+    </table>
+    </div>
+  </div>  
+
+    
+
+    
+    </section>

@@ -8,11 +8,19 @@ Rails.application.routes.draw do
     get  '/signup',  to: 'users#new'
     post '/signup',  to: 'users#create'
     get  '/users',   to: 'users#index'
+    get '/users/bolus', to: 'users#bolus'
+    get 'users/:id/edit/diabsettings', to: 'users#edit_diabsettings', as: :edit_diabsettings
+    get 'users/get_time'
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
     delete '/logout',  to: 'sessions#destroy'
 
-    resources :users, except: [:new]
+    resources :users, except: [:new] do
+      member do
+        get :diabsettings
+        post :diabsettings
+      end
+    end
     resources :account_activations, only: [:edit]
     resources :password_resets,     only: [:new, :create, :edit, :update]  
 end

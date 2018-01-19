@@ -1,0 +1,122 @@
+<%#= javascript_include_tag "new_Patient_new_akt_newtry"%>
+<% provide(:title, "Diabetes Settings") %>
+
+<% provide(:button_text, "Update BU-Factors") %>
+
+<h1 class="text-center">Diabetes Settings</h1>
+
+  <button class="btn btn-success diabsetbutton" type="button" data-toggle="collapse" data-target="#collapseBU" aria-expanded="false" aria-controls="collapseExample">
+    Edit Carbohydrate-Factors
+  </button>
+
+<div class="collapse" id="collapseBU">
+  <div class="card card-body">
+  <h2 class="text-center">Carbohydrate(BU)-Factors</h2>
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label  :zero_till_one, "0h - 1h"  %>
+  <%= f.number_field :zero_till_one, class: 'form-control', min: 0.1, :step => 0.1 %>
+ 
+  <%= f.label  :one_till_two, "1h - 2h"  %>
+  <%= f.number_field :one_till_two, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :two_till_three, "2h - 3h"  %>
+  <%= f.number_field :two_till_three, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :three_till_four, "3h - 4h"  %>
+  <%= f.number_field :three_till_four, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :four_till_five, "4h - 5h"  %>
+  <%= f.number_field :four_till_five, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :five_till_six, "5h - 6h"  %>
+  <%= f.number_field :five_till_six, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :six_till_seven, "6h - 7h"  %>
+  <%= f.number_field :six_till_seven, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :seven_till_eight, "7h - 8h"  %>
+  <%= f.number_field :seven_till_eight, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :eight_till_nine, "8h - 9h"  %>
+  <%= f.number_field :eight_till_nine, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :nine_till_ten, "9h - 10h"  %>
+  <%= f.number_field :nine_till_ten, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :ten_till_eleven, "10h - 11h"  %>
+  <%= f.number_field :ten_till_eleven, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :eleven_till_twelve, "11h - 12h"  %>
+  <%= f.number_field :eleven_till_twelve, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :twelve_till_thirteen, "12h - 13h"  %>
+  <%= f.number_field :twelve_till_thirteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :thirteen_till_fourteen, "13h - 14h"  %>
+  <%= f.number_field :thirteen_till_fourteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :fourteen_till_fifteen, "14h - 15h"  %>
+  <%= f.number_field :fourteen_till_fifteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :fifteen_till_sixteen, "15h - 16"  %>
+  <%= f.number_field :fifteen_till_sixteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :sixteen_till_seventeen, "16 - 17h"  %>
+  <%= f.number_field :sixteen_till_seventeen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :seventeen_till_eightteen, "17h - 18h"  %>
+  <%= f.number_field :seventeen_till_eightteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :eightteen_till_nineteen, "18h - 19h"  %>
+  <%= f.number_field :eightteen_till_nineteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+  
+  <%= f.label  :nineteen_till_twenty, "19h - 20h"  %>
+  <%= f.number_field :nineteen_till_twenty, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :twenty_till_twentyone, "20h - 21h"  %>
+  <%= f.number_field :twenty_till_twentyone, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :twentyone_till_twentytwo, "21h - 22h"  %>
+  <%= f.number_field :twentyone_till_twentytwo, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :twentytwo_till_twentythree, "22h - 23h"  %>
+  <%= f.number_field :twentytwo_till_twentythree, class: 'form-control', min: 0.1, :step => 0.1%>
+
+  <%= f.label  :twentythree_till_zero, "23h - 0h"  %>
+  <%= f.number_field :twentythree_till_zero, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
+
+
+
+
+
+  </div>
+</div>
+<article>
+<p>
+<button class="btn btn-success diabsetbutton" type="button" data-toggle="collapse" data-target="#collapseBS" aria-expanded="false" aria-controls="collapseExample">
+    Edit Blood Sugar Target Range
+  </button>
+
+<div class="collapse" id="collapseBS">
+  <div class="card card-body">
+  <h2 class="text-center">Blood Sugar Target Range</h2>
+  </div>
+  </div>
+  </p>
+  </article>
+  
+<button class="btn btn-success diabsetbutton" type="button" data-toggle="collapse" data-target="#collapseCF" aria-expanded="false" aria-controls="collapseExample">
+    Edit Correction Factor
+  </button>
+
+<div class="collapse" id="collapseCF">
+  <div class="card card-body">
+  <h2 class="text-center">Blood Sugar Correction Factor</h2>
+  </div>
+  </div>
+  
