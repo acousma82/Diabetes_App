@@ -52,9 +52,7 @@ class UsersController < ApplicationController
     gon.bu_factors = @bu_factors.to_json
   end
 
-  def bolus_to_diary
-  #action to get the calculated insulin value and the eaten carbohydrates and create a DiaryEntry with it. Route is missing
-  end
+
 
 
   def edit_diabsettings
