@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyText
+  bloodsugar: 100
+  carbohydrates: 40
+  insulin: 1.5
+  user: one
+  created_at: <%= 5.minutes.ago %>
+
+two:
+  comment: MyText
+  bloodsugar: 50
+  carbohydrates: 20
+  insulin: 1.5
+  user: two
+  created_at: <%= 10.minutes.ago %>
+
+
+most_recent:
+  comment: MyText
+  bloodsugar: 80
+  carbohydrates: 100
+  insulin: 1.5
+  user: three
+  created_at: <%= Time.zone.now %>
