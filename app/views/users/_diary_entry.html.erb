@@ -1,9 +1,0 @@
-<li id="diary_entry-<%= diary_entry.id %>">
-  <%= link_to gravatar_for(diary_entry.user, size: 50), diary_entry.user %>
-  <span class="user"><%= link_to diary_entry.user.name, diary_entry.user %></span>
-  <span class="timestamp"><%= diary_entry.created_at %></span>
-  <span class="bloodsugar"><%= diary_entry.bloodsugar %></span>
-  <span class="carbohydrates"><%= diary_entry.carbohydrates %></span>
-  <span class="insulin"><%= diary_entry.insulin %></span>
-  <span class="comment"><%= diary_entry.comment %></span>
-</li>

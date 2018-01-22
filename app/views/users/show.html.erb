@@ -12,11 +12,24 @@
   </aside>
   <div class="col-md-8">
     <% if @user.diary_entries.any? %>
-      <h3>My Diabetes Diary (<%= @user.diary_entries.count %>)</h3>
-      <ol class="diary_entries">
+  <table class="table table-dark">
+    <h3 class="text-center">My Diabetes Diary </h3>
+  <thead>
+    <tr>
+       <th scope="col">Time</th>
+       <th scope="col">Bloodsugar</th>
+       <th scope="col">Bread Units</th>
+       <th scope="col">Injected Insulin</th>
+       <th scope="col">Comment</th>
+    </tr>
+  </thead>
+
+    <tbody class="diary_entries">
+   
         <%= render @diary_entries %>
-      </ol>
-      <%= will_paginate @diary_entries %>
+    </tbody>
+  </table>
+   
     <% end %>
   </div>
 
