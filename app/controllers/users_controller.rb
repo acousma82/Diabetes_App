@@ -30,6 +30,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
+    @diary_entries = @user.diary_entries.paginate(page: params[:page])
+    
   end
 
   def edit
@@ -48,8 +50,8 @@ class UsersController < ApplicationController
   end
   
   def bolus
-    @bu_factors = current_user.serializable_hash.except("id", "name", "email","created_at",                                                                         "updated_at", "password_digest",                                                                          "remember_digest","activation_digest",                                                                    "admin", "activated","activated_at",                                                                           "reset_digest", "reset_sent_at")
-    gon.bu_factors = @bu_factors
+    @bu_factors = current_user.serializable_hash.except("id", "name", "email","created_at", "updated_at", "password_digest",                                                                                  "remember_digest","activation_digest","admin", "activated", "activated_at", "reset_digest", "reset_sent_at")
+    gon.bu_factors = @bu_factors.to_json
   end
 
 
@@ -57,21 +59,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
-
-
-  
-
-
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
   end
 
-  def get_time
-    @time = Time.now.strftime("%H:%M Uhr")
-    render partial: "shared/date"
-  end
+
 
 private
 

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
     delete '/logout',  to: 'sessions#destroy'
+    post '/diaryentry',  to: 'diary_entries#create', as: :diary_entry
+    get '/diaryentry',  to: 'diary_entries#new'
 
     resources :users, except: [:new] do
       member do
