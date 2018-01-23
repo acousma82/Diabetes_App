@@ -135,11 +135,31 @@ function timeFakt() {
 };
 
 
-// Calculation of the needed insulin for the amount of carbohydrates eaten
+// Calculation of the additional insulin needed when Bloodsugar before a meal is to high
+function correctBloodSugar() {
+    let bloodsugar = document.getElementById("bloodsugar")
+    if(bloodsugar === null){return};
+    const HIGH_BS = 150
+    const TARGET_BS = 100
+    const CORRECTION_NUMBER = 20
+    const INSULIN_PER_CORR_NUM = 0.1
+    let addInsulin;
+    let bsDiff =  (bloodsugar.value - TARGET_BS)
+    if (bloodsugar.value > HIGH_BS){
+        addInsulin = (bsDiff/CORRECTION_NUMBER)* INSULIN_PER_CORR_NUM;
+        console.log(addInsulin)
+        alert("Your Bloodsugar is " + bsDiff + " mg/dl too high. " + addInsulin + " U were added to Your meal bolus")
+        return addInsulin;
+    };
+  
+    
 
+}
+// Calculation of the needed insulin for the amount of carbohydrates eaten
 function insulinBerechnen() {
     //Form validation and checking if the ids exist on the page
     let eat = document.getElementById("be").value;
+    if (eat === null){return};
     if( eat <= 0){
         alert("If the carbs you ate are zero or below you don't need any insulin ;-)"); 
         return};
@@ -150,30 +170,12 @@ function insulinBerechnen() {
         return};
    
     let uLin = document.getElementById("insulin");
+    let insulinTodb = document.getElementById("insulinTodb");
+    //if (insulintodb === null){return};
+    let addInsulin = correctBloodSugar();
+    console.log(addInsulin);
+    uLin.innerHTML = (eat * beFaktor.value + addInsulin).toFixed(2).toString();
+    insulinTodb.value = (eat * beFaktor.value + addInsulin).toFixed(2).toString();
     
-    //calculating the Insulin according to the time of day
-    let hours = currentHours()
-    if (hours > 20 || hours < 6) {
-        if (beFaktor.value === ""){beFactorNight = 0.5}
-        else {beFactorNight = beFaktor.value};
-        uLin.innerHTML = (eat * beFactorNight).toFixed(2).toString();
-    }
-    else if (hours >= 6 && hours < 11) {
-        if (beFaktor.value === ""){beFactorMorning = 1.3}
-        else {beFactorMorning = beFaktor.value};
-        uLin.innerHTML = (eat * beFactorMorning).toFixed(2).toString();
-    }
-
-    else if (hours >= 11 && hours < 18) {
-        if (beFaktor.value === ""){beFactorNoon = 0.8}
-        else {beFactorNoon = beFaktor.value};
-        uLin.innerHTML = (eat * beFactorNoon).toFixed(2).toString();
-    }
-    else if (hours >= 18 && hours <= 20) {
-        if (beFaktor.value === ""){beFactorEvening = 0.8}
-        else {beFactorEvening = beFaktor.value};
-        uLin.innerHTML = (eat * beFactorEvening).toFixed(2).toString();
-    };
-
 };
 

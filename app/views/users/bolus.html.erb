@@ -8,7 +8,7 @@
   
       
         
-            <h2 class="text-center heading-bolus">Bolus Calculator</h2>
+            <h2 class="text-center heading-bolus">New Diary Entry</h2>
              <h4 class="text-center text-muted" id="Uhrzeit"></h4>
           
      
@@ -22,20 +22,20 @@
       <label for="be" class="offset-sm-4 col-sm-2 col-form-label text-left">eaten Carbohydrates (in BU)</label>
       <div class="col-sm-2">
         <input type="number" min="0" class="form-control" id="be" name="diary_entry[carbohydrates]">
-        <!--<small id="be-info" class="form-text text-muted">
-              (Hier können Sie die gegessenen Kohlenhydrate in Broteinheiten eingeben.) 
-        </small>-->
       </div>
     </div>
     <div class="form-group row">
       <label for="faktor" class="offset-sm-4 col-sm-2 col-form-label">BU Factor</label>
       <div class="col-sm-2">
         <input type="number" min="0" class="form-control" id="faktor" name="faktor" value="">
-        <!--<small id="faktor" class="form-text text-muted">
-                (Hier können Sie den aktuellen BE-Faktor ändern, wenn nötig.) 
-        </small>-->
         </div>
-       
+       <input type="hidden"class="form-control" id="insulinTodb" name="diary_entry[insulin]" value="">
+    </div>
+    <div class="form-group row">
+      <label for="bloodsugar" class="offset-sm-4 col-sm-2 col-form-label">Bloodsugar(mg/dl)</label>
+      <div class="col-sm-2">
+        <input type="number" min="1" class="form-control" id="bloodsugar" name="diary_entry[bloodsugar]" value="">
+        </div>
     </div>
     <div class="row">
       <div class= "offset-sm-4 col-sm2 ">
