@@ -147,7 +147,7 @@ function correctBloodSugar() {
     let addInsulin = 0;
     let bsDiff =  (bloodsugar.value - TARGET_BS)
     if (bloodsugar.value > HIGH_BS){
-        addInsulin = ((bsDiff/CORRECTION_NUMBER)* INSULIN_PER_CORR_NUM);
+        addInsulin = Math.round(((bsDiff/CORRECTION_NUMBER)* INSULIN_PER_CORR_NUM)*100)/100;
         console.log(addInsulin);
         corrInsulin.innerHTML = "Your Bloodsugar is " + bsDiff + " mg/dl too high. " + addInsulin + " U Insulin were added.";
         return addInsulin;
@@ -175,14 +175,15 @@ function insulinBerechnen() {
         return};
     
     let tLin = document.getElementById("insulin");
-    let mLin = document.getElementById("mealinsulin")
+    let mLin = document.getElementById("mealinsulin");
     let insulinTodb = document.getElementById("insulinTodb");
     //if (insulintodb === null){return};
     let addInsulin = correctBloodSugar();
-    console.log(addInsulin);
-    mLin.innerHTML = (eat * beFaktor.value).toFixed(2).toString();
-    tLin.innerHTML = (eat * beFaktor.value + addInsulin).toFixed(2).toString();
-    insulinTodb.value = (eat * beFaktor.value + addInsulin).toFixed(2).toString()
+    let mealInsulin = (eat * beFaktor.value); 
+    let insulinProduct = mealInsulin+addInsulin;
+    mLin.innerHTML = mealInsulin.toFixed(2);
+    tLin.innerHTML = insulinProduct.toFixed(2);
+    insulinTodb.value = (eat * beFaktor.value + addInsulin).toFixed(2)
     
 };
 
