@@ -135,12 +135,37 @@ function timeFakt() {
 };
 
 
-// Calculation of the needed insulin for the amount of carbohydrates eaten
+// Calculation of the additional insulin needed when Bloodsugar before a meal is to high
+function correctBloodSugar() {
+    let bloodsugar = document.getElementById("bloodsugar")
+    let corrInsulin = document.getElementById("corrinsulin")
+    if(bloodsugar === null){return};
+    const HIGH_BS = 150
+    const TARGET_BS = 100
+    const CORRECTION_NUMBER = 20
+    const INSULIN_PER_CORR_NUM = 0.1
+    let addInsulin = 0;
+    let bsDiff =  (bloodsugar.value - TARGET_BS)
+    if (bloodsugar.value > HIGH_BS){
+        addInsulin = ((bsDiff/CORRECTION_NUMBER)* INSULIN_PER_CORR_NUM);
+        console.log(addInsulin);
+        corrInsulin.innerHTML = "Your Bloodsugar is " + bsDiff + " mg/dl too high. " + addInsulin + " U Insulin were added.";
+        return addInsulin;
+    }
+    else {
+        return corrInsulin.innerHTML = addInsulin + " U";
+    };
+  
+    
 
+}
+// Calculation of the needed insulin for the amount of carbohydrates eaten
 function insulinBerechnen() {
     //Form validation and checking if the ids exist on the page
     let eat = document.getElementById("be").value;
-    if( eat <= 0){
+    if (eat === null){return};
+    let bloodsugar = document.getElementById("bloodsugar").value
+    if( eat <= 0 && bloodsugar <= 0 ){
         alert("If the carbs you ate are zero or below you don't need any insulin ;-)"); 
         return};
     let beFaktor = document.getElementById("faktor");
@@ -148,32 +173,16 @@ function insulinBerechnen() {
     if( beFaktor.value <= 0){
         alert("Enter a Valid factor bigger than 0"); 
         return};
-   
-    let uLin = document.getElementById("insulin");
     
-    //calculating the Insulin according to the time of day
-    let hours = currentHours()
-    if (hours > 20 || hours < 6) {
-        if (beFaktor.value === ""){beFactorNight = 0.5}
-        else {beFactorNight = beFaktor.value};
-        uLin.innerHTML = (eat * beFactorNight).toFixed(2).toString();
-    }
-    else if (hours >= 6 && hours < 11) {
-        if (beFaktor.value === ""){beFactorMorning = 1.3}
-        else {beFactorMorning = beFaktor.value};
-        uLin.innerHTML = (eat * beFactorMorning).toFixed(2).toString();
-    }
-
-    else if (hours >= 11 && hours < 18) {
-        if (beFaktor.value === ""){beFactorNoon = 0.8}
-        else {beFactorNoon = beFaktor.value};
-        uLin.innerHTML = (eat * beFactorNoon).toFixed(2).toString();
-    }
-    else if (hours >= 18 && hours <= 20) {
-        if (beFaktor.value === ""){beFactorEvening = 0.8}
-        else {beFactorEvening = beFaktor.value};
-        uLin.innerHTML = (eat * beFactorEvening).toFixed(2).toString();
-    };
-
+    let tLin = document.getElementById("insulin");
+    let mLin = document.getElementById("mealinsulin")
+    let insulinTodb = document.getElementById("insulinTodb");
+    //if (insulintodb === null){return};
+    let addInsulin = correctBloodSugar();
+    console.log(addInsulin);
+    mLin.innerHTML = (eat * beFaktor.value).toFixed(2).toString();
+    tLin.innerHTML = (eat * beFaktor.value + addInsulin).toFixed(2).toString();
+    insulinTodb.value = (eat * beFaktor.value + addInsulin).toFixed(2).toString()
+    
 };
 

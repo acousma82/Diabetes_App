@@ -26,6 +26,6 @@ class DiaryEntriesController < ApplicationController
         params.require(:diary_entry).permit(:comment, :insulin, :bloodsugar, :carbohydrates)
     end
     
-    end
+end
     
     

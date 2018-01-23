@@ -1,8 +1,7 @@
 <tr id="diary_entry-<%= diary_entry.id %>">
  <td> <span class="timestamp"><%= diary_entry.created_at.strftime("%d.%m.%Y %k:%M") %></span> </td>
- <td><span class="bloodsugar"><%= diary_entry.bloodsugar %></span></td>
+  <td><span class="bloodsugar"><%= diary_entry.bloodsugar %></span></td>
  <td> <span class="carbohydrates"><%= diary_entry.carbohydrates %></span></td>
  <td> <span class="insulin"><%= diary_entry.insulin %></span></td>
  <td> <span class="comment"><%= diary_entry.comment %></span></td>
 </tr>
-<% end %>
