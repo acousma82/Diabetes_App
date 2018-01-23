@@ -45,16 +45,31 @@
         <button type="submit" name="commit" class="btn btn-success btn-md">Save to my Diary</button>
       </div>
       </div>
-    <% end%>
-     <div class="row top-buffer"> 
+    
+       <div class="row top-buffer">
+      <div class="offset-sm-4 col-sm-4 lead bg-primary">
+            
+               Meal Bolus: <strong id="mealinsulin"></strong>U
+            
+      </div>
+      </div>
+     <div class="row top-buffer">
+      <div class="offset-sm-4 col-sm-4 lead bg-danger">
+            
+               Correction Bolus:<strong id="corrinsulin"></strong>
+            
+      </div>
+      </div>
+      <div class="row top-buffer"> 
       <div class="offset-sm-4 col-sm-4 lead bg-warning">
             
-              You have to inject <strong id="insulin"></strong> U (Insulin Units)
+              You have to inject <strong id="insulin"></strong> U insulin in total
             
       </div>
       </div>
       </div>
-  </form>
+      </div>
+<% end%>
   
   
  

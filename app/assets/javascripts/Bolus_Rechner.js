@@ -138,18 +138,22 @@ function timeFakt() {
 // Calculation of the additional insulin needed when Bloodsugar before a meal is to high
 function correctBloodSugar() {
     let bloodsugar = document.getElementById("bloodsugar")
+    let corrInsulin = document.getElementById("corrinsulin")
     if(bloodsugar === null){return};
     const HIGH_BS = 150
     const TARGET_BS = 100
     const CORRECTION_NUMBER = 20
     const INSULIN_PER_CORR_NUM = 0.1
-    let addInsulin;
+    let addInsulin = 0;
     let bsDiff =  (bloodsugar.value - TARGET_BS)
     if (bloodsugar.value > HIGH_BS){
-        addInsulin = (bsDiff/CORRECTION_NUMBER)* INSULIN_PER_CORR_NUM;
-        console.log(addInsulin)
-        alert("Your Bloodsugar is " + bsDiff + " mg/dl too high. " + addInsulin + " U were added to Your meal bolus")
+        addInsulin = ((bsDiff/CORRECTION_NUMBER)* INSULIN_PER_CORR_NUM);
+        console.log(addInsulin);
+        corrInsulin.innerHTML = "Your Bloodsugar is " + bsDiff + " mg/dl too high. " + addInsulin + " U Insulin were added.";
         return addInsulin;
+    }
+    else {
+        return corrInsulin.innerHTML = addInsulin + " U";
     };
   
     
@@ -169,14 +173,16 @@ function insulinBerechnen() {
     if( beFaktor.value <= 0){
         alert("Enter a Valid factor bigger than 0"); 
         return};
-   
-    let uLin = document.getElementById("insulin");
+    
+    let tLin = document.getElementById("insulin");
+    let mLin = document.getElementById("mealinsulin")
     let insulinTodb = document.getElementById("insulinTodb");
     //if (insulintodb === null){return};
     let addInsulin = correctBloodSugar();
     console.log(addInsulin);
-    uLin.innerHTML = (eat * beFaktor.value + addInsulin).toFixed(2).toString();
-    insulinTodb.value = (eat * beFaktor.value + addInsulin).toFixed(2).toString();
+    mLin.innerHTML = (eat * beFaktor.value).toFixed(2).toString();
+    tLin.innerHTML = (eat * beFaktor.value + addInsulin).toFixed(2).toString();
+    insulinTodb.value = (eat * beFaktor.value + addInsulin).toFixed(2).toString()
     
 };
 
