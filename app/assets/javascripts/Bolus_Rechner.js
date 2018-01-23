@@ -160,7 +160,8 @@ function insulinBerechnen() {
     //Form validation and checking if the ids exist on the page
     let eat = document.getElementById("be").value;
     if (eat === null){return};
-    if( eat <= 0){
+    let bloodsugar = document.getElementById("bloodsugar").value
+    if( eat <= 0 && bloodsugar <= 0 ){
         alert("If the carbs you ate are zero or below you don't need any insulin ;-)"); 
         return};
     let beFaktor = document.getElementById("faktor");
