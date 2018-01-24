@@ -153,7 +153,7 @@ function correctBloodSugar() {
         return addInsulin;
     }
     else {
-        return corrInsulin.innerHTML = addInsulin + " U";
+        return addInsulin;
     };
   
     
@@ -178,11 +178,11 @@ function insulinBerechnen() {
     let mLin = document.getElementById("mealinsulin")
     let insulinTodb = document.getElementById("insulinTodb");
     //if (insulintodb === null){return};
-    let addInsulin = correctBloodSugar();
-    console.log(addInsulin);
+    let adInsulin = correctBloodSugar();
+    console.log(adInsulin);
     mLin.innerHTML = (eat * beFaktor.value).toFixed(2).toString();
-    tLin.innerHTML = (eat * beFaktor.value + addInsulin).toFixed(2).toString();
-    insulinTodb.value = (eat * beFaktor.value + addInsulin).toFixed(2).toString()
+    tLin.innerHTML = (eat * beFaktor.value + adInsulin).toFixed(2).toString();
+    insulinTodb.value = (eat * beFaktor.value + adInsulin).toFixed(2).toString()
     
 };
 
