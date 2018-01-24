@@ -10,7 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119093831) do
+ActiveRecord::Schema.define(version: 20180124121556) do
+
+  create_table "diabetes_settings", force: :cascade do |t|
+    t.float "zero_till_one"
+    t.float "one_till_two"
+    t.float "two_till_three"
+    t.float "three_till_four"
+    t.float "four_till_five"
+    t.float "five_till_six"
+    t.float "six_till_seven"
+    t.float "seven_till_eight"
+    t.float "eight_till_nine"
+    t.float "nine_till_ten"
+    t.float "ten_till_eleven"
+    t.float "eleven_till_twelve"
+    t.float "twelve_till_thirteen"
+    t.float "thirteen_till_fourteen"
+    t.float "fourteen_till_fifteen"
+    t.float "fifteen_till_sixteen"
+    t.float "sixteen_till_seventeen"
+    t.float "seventeen_till_eightteen"
+    t.float "eightteen_till_nineteen"
+    t.float "nineteen_till_twenty"
+    t.float "twenty_till_twentyone"
+    t.float "twentyone_till_twentytwo"
+    t.float "twentytwo_till_twentythree"
+    t.float "twentythree_till_zero"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "bs_min"
+    t.integer "bs_max"
+    t.integer "bs_target"
+    t.integer "correction_number"
+    t.float "correction_insulin"
+    t.integer "user_id"
+    t.index ["user_id", "created_at"], name: "index_diabetes_settings_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_diabetes_settings_on_user_id"
+  end
 
   create_table "diary_entries", force: :cascade do |t|
     t.text "comment"
@@ -37,30 +74,6 @@ ActiveRecord::Schema.define(version: 20180119093831) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.float "zero_till_one"
-    t.float "one_till_two"
-    t.float "two_till_three"
-    t.float "three_till_four"
-    t.float "four_till_five"
-    t.float "five_till_six"
-    t.float "six_till_seven"
-    t.float "seven_till_eight"
-    t.float "eight_till_nine"
-    t.float "nine_till_ten"
-    t.float "ten_till_eleven"
-    t.float "eleven_till_twelve"
-    t.float "twelve_till_thirteen"
-    t.float "thirteen_till_fourteen"
-    t.float "fourteen_till_fifteen"
-    t.float "fifteen_till_sixteen"
-    t.float "sixteen_till_seventeen"
-    t.float "seventeen_till_eightteen"
-    t.float "eightteen_till_nineteen"
-    t.float "nineteen_till_twenty"
-    t.float "twenty_till_twentyone"
-    t.float "twentyone_till_twentytwo"
-    t.float "twentytwo_till_twentythree"
-    t.float "twentythree_till_zero"
   end
 
 end

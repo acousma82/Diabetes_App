@@ -20,8 +20,8 @@ class DiaryEntryTest < ActiveSupport::TestCase
     assert_not @empty_entry.valid?
   end
 
-  test "order should be most recent first" do
-    assert_equal diary_entries(:most_recent), DiaryEntry.first
+  test "order should be most recent last" do
+    assert_equal diary_entries(:most_recent), DiaryEntry.last
   end
 
 end

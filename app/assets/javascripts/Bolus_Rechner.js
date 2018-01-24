@@ -140,6 +140,7 @@ function correctBloodSugar() {
     let bloodsugar = document.getElementById("bloodsugar")
     let corrInsulin = document.getElementById("corrinsulin")
     if(bloodsugar === null){return};
+    // to be substituted by saved settings from the database
     const HIGH_BS = 150
     const TARGET_BS = 100
     const CORRECTION_NUMBER = 20
