@@ -9,6 +9,7 @@ class DiaryEntryTest < ActiveSupport::TestCase
   end
 
   test "should be valid" do
+    assert @diary_entry.valid?
   end
   
   test "user id should be present" do

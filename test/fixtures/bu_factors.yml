@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  zero_till_one: 1.5
+  one_till_two: 1.5
+  two_till_three: 1.5
+  three_till_four: 1.5
+  four_till_five: 1.5
+  five_till_six: 1.5
+  six_till_seven: 1.5
+  seven_till_eight: 1.5
+  eight_till_nine: 1.5
+  nine_till_ten: 1.5
+  ten_till_eleven: 1.5
+  eleven_till_twelve: 1.5
+  twelve_till_thirteen: 1.5
+  thirteen_till_fourteen: 1.5
+  fourteen_till_fifteen: 1.5
+  fifteen_till_sixteen: 1.5
+  sixteen_till_seventeen: 1.5
+  seventeen_till_eightteen: 1.5
+  eightteen_till_nineteen: 1.5
+  nineteen_till_twenty: 1.5
+  twenty_till_twentyone: 1.5
+  twentyone_till_twentytwo: 1.5
+  twentytwo_till_twentythree: 1.5
+  twentythree_till_zero: 1.5
+
+two:
+  zero_till_one: 1.5
+  one_till_two: 1.5
+  two_till_three: 1.5
+  three_till_four: 1.5
+  four_till_five: 1.5
+  five_till_six: 1.5
+  six_till_seven: 1.5
+  seven_till_eight: 1.5
+  eight_till_nine: 1.5
+  nine_till_ten: 1.5
+  ten_till_eleven: 1.5
+  eleven_till_twelve: 1.5
+  twelve_till_thirteen: 1.5
+  thirteen_till_fourteen: 1.5
+  fourteen_till_fifteen: 1.5
+  fifteen_till_sixteen: 1.5
+  sixteen_till_seventeen: 1.5
+  seventeen_till_eightteen: 1.5
+  eightteen_till_nineteen: 1.5
+  nineteen_till_twenty: 1.5
+  twenty_till_twentyone: 1.5
+  twentyone_till_twentytwo: 1.5
+  twentytwo_till_twentythree: 1.5
+  twentythree_till_zero: 1.5
