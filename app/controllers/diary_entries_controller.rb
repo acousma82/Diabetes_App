@@ -1,6 +1,9 @@
 class DiaryEntriesController < ApplicationController
     
     def new
+        @bu_factors = current_user.bu_factors
+        @bs_settings = current_user.diabetes_settings
+        gon.bu_factors = @bu_factors.to_json
     end
     
     def create

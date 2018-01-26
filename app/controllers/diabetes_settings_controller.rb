@@ -1,18 +1,14 @@
 class DiabetesSettingsController < ApplicationController
     
     def new
+        #diabetes settings view with two buttons to create a new settings
     end
 
     def create
-    end
+        #create a new diabetes setting
+    
+private
 
-    def update 
-    end
-
-    def show
-    end
-
-    def destroy
-    end
+    params.require(:diabetes_setting).permit(:bs_min, :bs_max, :bs_target, :correction_number, :correction_insulin)
 
 end
