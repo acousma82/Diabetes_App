@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     #@bu_factors = BuFactor.find_by(user_id: params[:id])
     @user = User.find(params[:id])
     @curr_factors = @user.bu_factors.last
-    @bu_factors = @user.bu_factors.build
+    @bu_factor = @user.bu_factors.build
     @diabsettings = @user.diabetes_settings
 
   end
