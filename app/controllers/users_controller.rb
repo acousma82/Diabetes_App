@@ -62,7 +62,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @curr_factors = @user.bu_factors.last
     @bu_factor = @user.bu_factors.build
-    @diabsettings = @user.diabetes_settings
+    @diabetes_settings = @user.diabetes_settings.last
+    @diabetes_setting = @user.diabetes_settings.build
 
   end
   

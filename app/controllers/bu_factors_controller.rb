@@ -7,6 +7,7 @@ class BuFactorsController < ApplicationController
       flash[:success] = "Bu Factors updated"
       redirect_to edit_diabsettings_path(current_user)
     else
+      flash[:danger] = "Bu Factors couldn't be updated"
       redirect_to edit_diabsettings_path(current_user)
     end
   end
