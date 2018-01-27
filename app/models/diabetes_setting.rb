@@ -2,9 +2,9 @@ class DiabetesSetting < ApplicationRecord
     belongs_to :user
     default_scope -> { order(created_at: :desc)}
     validates :user_id, presence: true
-    validates :user_id, presence: true
+    
     validates :bs_min, :bs_max, :bs_target, :correction_number, numericality: { only_integer: true, allow_nil: true }, presence: :true
-    validates :user_id, presence: true
+   
     validates :correction_insulin, numericality: :true
     validate :bs_min_is_less_than_bs_max
     validate :bs_max_is_greater_than_bs_min

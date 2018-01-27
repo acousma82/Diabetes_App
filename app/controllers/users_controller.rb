@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     #before filter
       before_action :logged_in_user, only: [:show, :edit, :update, :destroy] 
     
-      before_action :correct_user,   only: [:show, :edit, :update]
+      before_action :correct_user,   only: [:show, :edit, :update, :edit_diabsettings]
       before_action :admin_user,     only: [:index, :destroy]
     
     
@@ -57,7 +57,13 @@ class UsersController < ApplicationController
 
 
   def edit_diabsettings
+    #should return the latest created bu_factors for the current user
+    #@bu_factors = BuFactor.find_by(user_id: params[:id])
     @user = User.find(params[:id])
+    @curr_factors = @user.bu_factors.last
+    @bu_factors = @user.bu_factors.build
+    @diabsettings = @user.diabetes_settings
+
   end
   
   def destroy

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :diary_entries, dependent: :destroy
     has_many :diabetes_settings, dependent: :destroy
+    has_many :bu_factors, dependent: :destroy
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save :downcase_email
     before_create :create_activation_digest

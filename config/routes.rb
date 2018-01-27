@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  get 'bu_factors/action:create'
+ 
 
     root 'static_pages#home'
     get  '/help',    to: 'static_pages#help'
@@ -10,26 +9,19 @@ Rails.application.routes.draw do
     get  '/signup',  to: 'users#new'
     post '/signup',  to: 'users#create'
     get  '/users',   to: 'users#index'
-    get '/users/bolus', to: 'users#bolus'
     get 'users/:id/edit/diabsettings', to: 'users#edit_diabsettings', as: :edit_diabsettings
-    get 'users/get_time'
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
     delete '/logout',  to: 'sessions#destroy'
     post '/diaryentry',  to: 'diary_entries#create', as: :diary_entry
     get '/diaryentry',  to: 'diary_entries#new'
 
-    resources :users, except: [:new] do
-      member do
-        get :diabsettings
-        post :diabsettings
-      end
-    end
+    resources :users, except: [:new]
     resources :account_activations, only: [:edit]
     resources :password_resets,     only: [:new, :create, :edit, :update]  
     resources :diary_entries
-    resources :diabsettings, only:[:new, :create, :edit, :update]
-    resources :bu_factors, only:[:create]
+    resources :diabetes_settings, only:[:new, :create, :edit, :update]
+    resources :bu_factors,  only: [:create]
   end
 
 

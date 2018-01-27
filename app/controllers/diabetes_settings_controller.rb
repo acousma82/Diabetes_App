@@ -6,7 +6,7 @@ class DiabetesSettingsController < ApplicationController
 
     def create
         #create a new diabetes setting
-    
+    end
 private
 
     params.require(:diabetes_setting).permit(:bs_min, :bs_max, :bs_target, :correction_number, :correction_insulin)
