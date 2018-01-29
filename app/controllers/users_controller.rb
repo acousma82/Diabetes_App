@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     #should return the latest created bu_factors for the current user
     #@bu_factors = BuFactor.find_by(user_id: params[:id])
     @user = User.find(params[:id])
-    @curr_factors = @user.bu_factors.last
+    @curr_factors = @user.bu_factors.last || []
     @bu_factor = @user.bu_factors.build
     @diabetes_settings = @user.diabetes_settings.last
     @diabetes_setting = @user.diabetes_settings.build

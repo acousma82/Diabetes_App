@@ -13,7 +13,7 @@ class DiaryEntriesController < ApplicationController
             redirect_to current_user
         else
             flash.now[:danger] = "Diary entry could not be created!"
-            render 'new'
+            reload new_diary_entry_path  
         end
     end
     

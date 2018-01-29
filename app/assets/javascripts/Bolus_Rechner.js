@@ -30,12 +30,19 @@ function currentHours(){
     let date = new Date();
     return date.getHours();
 }
+
+function currentSeconds(){
+    let date = new Date();
+    return date.getSeconds();
+}
 function time() {
     let hours = currentHours()
     let minutes = currentMinutes()
+    let seconds = currentSeconds()
     if (hours < 10) { hours = '0' + hours; }
     if (minutes < 10) { minutes = '0' + minutes; }
-    return (hours + ":" + minutes + "h");
+    if (seconds < 10) { seconds = '0' + seconds; }
+    return (hours + ":" + minutes + ":" + seconds + " h" );
 }
 
 function showTime(){
@@ -44,9 +51,10 @@ function showTime(){
     if (uHr === null){return}
     uHr.innerHTML = "It is " + time() + ".";
 }
+
 // Displaying the Timebased carbohydrate Faktor (BE-Faktor) and the actual time inside the form and html
 function timeFakt() {
-     
+    setInterval(showTime,1);
     bu_json = gon.bu_factors
     if (bu_json == null) {return};
     let factorJson = JSON.parse(gon.bu_factors);
@@ -55,7 +63,7 @@ function timeFakt() {
     //checking if the id exists on the page
     if (beFactor === null){return};
    
-    setInterval(showTime(),1);
+    
     switch (hours) {
 
         case 0:
