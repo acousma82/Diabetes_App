@@ -150,6 +150,13 @@ input {
   width: auto;
   margin-left: 0;
 }
+#comment{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 150px;
+  width: 300px;
+  @include box_sizing;
+}
 
 /* miscellaneous */
 

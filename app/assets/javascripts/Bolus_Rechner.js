@@ -149,14 +149,15 @@ function correctBloodSugar() {
     let corrInsulin = document.getElementById("corrinsulin")
     if(bloodsugar === null){return};
     // to be substituted by saved settings from the database
-    const HIGH_BS = 150
-    const TARGET_BS = 100
-    const CORRECTION_NUMBER = 20
-    const INSULIN_PER_CORR_NUM = 0.1
+    let bsSettings = JSON.parse(gon.bs_settings);
+    let bsMax = bsSettings.bs_max;
+    let bsTarget = bsSettings.bs_target;
+    let correction_number = bsSettings.correction_number;
+    let correction_insulin = bsSettings.correction_insulin;
     let addInsulin = 0;
-    let bsDiff =  (bloodsugar.value - TARGET_BS)
-    if (bloodsugar.value > HIGH_BS){
-        addInsulin = Math.round(((bsDiff/CORRECTION_NUMBER)* INSULIN_PER_CORR_NUM)*100)/100;
+    let bsDiff =  (bloodsugar.value - bsTarget)
+    if (bloodsugar.value > bsMax){
+        addInsulin = Math.round(((bsDiff/correction_number)* correction_insulin)*100)/100;
         console.log(addInsulin);
         corrInsulin.innerHTML = "Your Bloodsugar is " + bsDiff + " mg/dl too high. " + addInsulin + " U Insulin were added.";
         return addInsulin;
@@ -186,13 +187,18 @@ function insulinBerechnen() {
     let tLin = document.getElementById("insulin");
     let mLin = document.getElementById("mealinsulin");
     let insulinTodb = document.getElementById("insulinTodb");
+    let adInsulin = document.getElementById("adInsulin").value;
+    console.log(typeof adInsulin);
     //if (insulintodb === null){return};
     let addInsulin = correctBloodSugar();
-    let mealInsulin = (eat * beFaktor.value); 
-    let insulinProduct = mealInsulin+addInsulin;
+    console.log(typeof addInsulin);
+    let mealInsulin = (eat * beFaktor.value);
+    console.log(typeof mealInsulin); 
+    let insulinSum = mealInsulin + addInsulin + parseFloat(adInsulin);
+    console.log(typeof insulinSum);
     mLin.innerHTML = mealInsulin.toFixed(2);
-    tLin.innerHTML = insulinProduct.toFixed(2);
-    insulinTodb.value = (eat * beFaktor.value + addInsulin).toFixed(2)
+    tLin.innerHTML = insulinSum.toFixed(2);
+    insulinTodb.value = (eat * beFaktor.value + addInsulin + parseFloat(adInsulin)).toFixed(2);
     
 };
 

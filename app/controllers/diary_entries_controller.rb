@@ -4,6 +4,7 @@ class DiaryEntriesController < ApplicationController
         @bu_factors = current_user.bu_factors.last
         @bs_settings = current_user.diabetes_settings.last
         gon.bu_factors = @bu_factors.to_json
+        gon.bs_settings = @bs_settings.to_json
     end
     
     def create
@@ -13,7 +14,7 @@ class DiaryEntriesController < ApplicationController
             redirect_to current_user
         else
             flash.now[:danger] = "Diary entry could not be created!"
-            reload new_diary_entry_path  
+            redirect_to new_diary_entry_path  
         end
     end
     
