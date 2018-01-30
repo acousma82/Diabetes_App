@@ -10,10 +10,10 @@ class DiaryEntriesController < ApplicationController
     def create
         @diary_entry = current_user.diary_entries.build(diary_entry_params)
         if @diary_entry.save
-            flash.now[:success] = "A new Diary entry was created!"
+            flash[:success] = "A new Diary entry was created!"
             redirect_to current_user
         else
-            flash.now[:danger] = "Diary entry could not be created!"
+            flash[:danger] = "Diary entry could not be created!"
             redirect_to new_diary_entry_path  
         end
     end

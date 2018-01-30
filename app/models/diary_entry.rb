@@ -4,7 +4,7 @@ class DiaryEntry < ApplicationRecord
   default_scope -> { order(created_at: :asc)}
   validates :user_id, presence: true
   validate :has_content
-
+  validates :insulin, numericality: { greater_than: 0 }, allow_blank:true
 	
 
 
