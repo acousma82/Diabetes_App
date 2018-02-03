@@ -7,6 +7,18 @@
     <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
+
+    </ul>
+  </div>
+  <% elsif @bu_factor.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@bu_factor.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @bu_factor.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
     </ul>
   </div>
 <% end %>
