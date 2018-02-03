@@ -10,76 +10,51 @@
       
     </tr>
   </thead>
-    <tbody>
-    <tr>
+  <% bs = bu_factor.attributes.except("id") %>
+ 
+  <% i = 0 %>
+  <% bs.each do |key, value|%> 
+    
+    <% if (i < 6) %>
+      <tr><td><%= "#{i}h - #{i+1}h" %></td>
+      <td> 
+           <%= "#{value}"%>
+            
+      </td>
+      </tr>
       
-      <td>0h  -  1h</td>
-      <td><%= bu_factor.zero_till_one %></td>
-    </tr>
-    <tr>
-      
-      <td>1h  -  2h</td>
-      <td><%= bu_factor.one_till_two %></td>
-    </tr>
-    <tr>
-      
-      <td>2h - 3h</td>
-      <td><%= bu_factor.two_till_three %></td>
-    </tr>
-    <tr>
-      
-      <td>3h - 4h</td>
-      <td><%= bu_factor.three_till_four %></td>
-    </tr>
-    <tr>
-      
-      <td>4h - 5h</td>
-      <td><%= bu_factor.four_till_five %></td>
-    </tr>
-    <tr>
-      
-      <td>5h - 6h</td>
-      <td><%= bu_factor.five_till_six %></td>
-      
-    </tr>
-    </table>
-    </div>
-<div class="col-sm-3">
-<table class="table table-dark">
-<h4 class="text-center">Morning</h4>
-  <thead>
-    <tr>
-       <th scope="col">Time</th>
-       <th scope="col">BU Factor</th>
-    </tr>
-  </thead>
-  <tbody>
-     <tr>
-      <td>6h - 7h</td>
-      <td><%= bu_factor.six_till_seven %></td>
-    </tr>
-    <tr>
-      <td>7h - 8h</td>
-      <td><%= bu_factor.seven_till_eight %></td>
-    </tr>
-    <tr>
-      <td>8h - 9h</td>
-      <td><%= bu_factor.eight_till_nine %></td>
-    </tr>
-    <tr>
-      <td>9h - 10h</td>
-      <td><%= bu_factor.nine_till_ten %></td>
-    </tr>
-    <tr>
-      <td>10h - 11h</td>
-      <td><%= bu_factor.ten_till_eleven %></td>
-    </tr>
-    <tr>
-      <td>11h - 12h</td>
-      <td><%= bu_factor.eleven_till_twelve %></td>
-    </tr>
+      <% i+= 1 %>
 
-    </tbody>
+    <% elsif i == 6 %>
+     
+        </table>
+       </div>
+      <div class="col-sm-3">
+      <table class="table table-dark">
+      <h4 class="text-center">Morning</h4>
+        <thead>
+        <tr>
+        <th scope="col">Time</th>
+       <th scope="col">BU Factor</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr><td><%= "#{i}h - #{i+1}h" %></td>
+      <td> <%= "#{value}"%></td>
+      </tr>
+   
+    <%i +=1%>
+    <% elsif i > 6 && i<12 %>
+        <tr><td><%= "#{i}h - #{i+1}h" %></td>
+      <td> 
+           <%= "#{value}"%>
+            
+      </td>
+      </tr>
+      
+      <% i+= 1 %>
+      <% elsif i == 12%>
+      </tbody>
     </table>
     </div>
 <div class="col-sm-3">
@@ -92,36 +67,26 @@
     </tr>
   </thead>
   <tbody>
-     <tr>
-      <td>12h - 13h</td>
-      <td><%= bu_factor.twelve_till_thirteen %></td>
-    </tr>
-    <tr>
-      <td>13h - 14h</td>
-      <td><%= bu_factor.thirteen_till_fourteen %></td>
-    </tr>
-    <tr>
-      <td>14h - 15h</td>
-      <td><%= bu_factor.fourteen_till_fifteen %></td>
-    </tr>
-    <tr>
-      <td>15h - 16h</td>
-      <td><%= bu_factor.fifteen_till_sixteen %></td>
-    </tr>
-    <tr>
-      <td>16h - 17h</td>
-      <td><%= bu_factor.sixteen_till_seventeen %></td>
-    </tr>
-    <tr>
-      <td>17h - 18h</td>
-      <td><%= bu_factor.seventeen_till_eightteen %></td>
-    </tr>
+  <tr><td><%= "#{i}h - #{i+1}h" %></td>
+      <td> <%= "#{value}"%></td>
+      </tr>
+  
+    <%i +=1%>
+    <%elsif i>12 && i<18%>
 
-    </tbody>
+    <tr><td><%= "#{i}h - #{i+1}h" %></td>
+      <td> 
+           <%= "#{value}"%>
+            
+      </td>
+      </tr>
+      
+      <% i+= 1 %>
+       <%elsif i==18%>
+       </tbody>
     </table>
     </div>
-
-    <div class="col-sm-3">
+<div class="col-sm-3">
 <table class="table table-dark">
 <h4 class="text-center">Evening</h4>
   <thead>
@@ -131,32 +96,27 @@
     </tr>
   </thead>
   <tbody>
-     <tr>
-      <td>18h - 19h</td>
-      <td><%= bu_factor.eightteen_till_nineteen %></td>
-    </tr>
-    <tr>
-      <td>19h - 20h</td>
-      <td><%= bu_factor.nineteen_till_twenty %></td>
-    </tr>
-    <tr>
-      <td>20h - 21h</td>
-      <td><%= bu_factor.twenty_till_twentyone %></td>
-    </tr>
-    <tr>
-      <td>21h - 22h</td>
-      <td><%= bu_factor.twentyone_till_twentytwo %></td>
-    </tr>
-    <tr>
-      <td>22h - 23h</td>
-      <td><%= bu_factor.twentytwo_till_twentythree %></td>
-    </tr>
-    <tr>
-      <td>23h - 0h</td>
-      <td><%= bu_factor.twentythree_till_zero %></td>
-    </tr>
+  <tr><td><%= "#{i}h - #{i+1}h" %></td>
+      <td> <%= "#{value}"%></td>
+      </tr>
+ 
+    <%i +=1%>
+       <%elsif i>18 && i<24%>
 
-    </tbody>
+    <tr><td><%= "#{i}h - #{i+1}h" %></td>
+      <td> 
+           <%= "#{value}"%>
+            
+      </td>
+      </tr>
+      
+      <% i+= 1 %>
+    <% end %>
+  <%end%>
+   </tbody>
     </table>
     </div>
   </div>  
+
+
+   
