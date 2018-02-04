@@ -8,7 +8,7 @@ class BuFactorsController < ApplicationController
       redirect_to edit_diabsettings_path(current_user)
     else
       flash[:danger] = "Bu Factors couldn't be updated"
-      redirect_to edit_diabsettings_path(current_user)
+      render "users/edit_diabsettings", :locals => { :user =>  @user = @current_user, :bu_factor => @bu_factor = @bu_factors, :diabetes_setting => @diabetes_setting = @current_user.diabetes_settings.build, :curr_factor => @curr_factors = @user.bu_factors.last, :diabetes_settings => @diabetes_settings = @user.diabetes_settings.last}
     end
   end
 

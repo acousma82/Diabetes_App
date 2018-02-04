@@ -60,6 +60,8 @@ group :development, :test do
   gem 'selenium-webdriver'
   # Use sqlite3 as the database for Active Record in development
   gem 'sqlite3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do

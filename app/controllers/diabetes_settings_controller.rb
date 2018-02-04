@@ -11,7 +11,7 @@ class DiabetesSettingsController < ApplicationController
           redirect_to edit_diabsettings_path(current_user)
         else
           flash[:danger] = "Blood Sugar and Correction Rule couldn't be updated"
-          redirect_to edit_diabsettings_path(current_user)
+          render "users/edit_diabsettings", :locals => { :user =>  @user = @current_user, :bu_factor => @bu_factor = @current_user.bu_factors.build, :diabetes_setting => @diabetes_setting = @diabetes_settings, :curr_factor => @curr_factors = @user.bu_factors.last, :diabetes_settings => @diabetes_settings = @user.diabetes_settings.last}
         end
     end
 private
