@@ -64,7 +64,6 @@ class UsersController < ApplicationController
     @bu_factor = @user.bu_factors.build
     @diabetes_settings = @user.diabetes_settings.last
     @diabetes_setting = @user.diabetes_settings.build
-
   end
   
   def destroy

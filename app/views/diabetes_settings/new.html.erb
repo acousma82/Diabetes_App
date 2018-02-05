@@ -1,0 +1,265 @@
+<%#= javascript_include_tag "new_Patient_new_akt_newtry"%>
+<% provide(:title, "Diabetes Settings") %>
+
+<% provide(:button_text, "Update Settings") %>
+
+<h1 class="text-center">Diabetes Settings</h1>
+
+  <h2> BU Factors </h2>
+ <% if @user.bu_factors.exists? %>
+      <%=render @curr_factors %>  
+  <%end%>
+
+
+  <button class="btn btn-success diabsetbutton" type="button" data-toggle="collapse" data-target="#collapseBU" aria-expanded="false" aria-controls="collapseExample">
+    Set/Update BU(Carbohydrate) - Factors
+  </button>
+
+ <% if @user.bu_factors.exists? %>
+ <%# show diabetes settings%>
+<div class="collapse" id="collapseBU">
+  <div class="card card-body">
+  <h2 class="text-center">Carbohydrate(BU)-Factors</h2>
+<%= form_for(@bu_factor, url: user_bu_factors_path, method: :create ) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label  :zero_till_one, "0h - 1h"  %>
+  <%= f.number_field :zero_till_one, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.zero_till_one %>
+ 
+  <%= f.label  :one_till_two, "1h - 2h"  %>
+  <%= f.number_field :one_till_two, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.one_till_two %>
+
+  <%= f.label  :two_till_three, "2h - 3h"  %>
+  <%= f.number_field :two_till_three, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.two_till_three %>
+
+  <%= f.label  :three_till_four, "3h - 4h"  %>
+  <%= f.number_field :three_till_four, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.three_till_four %>
+
+  <%= f.label  :four_till_five, "4h - 5h"  %>
+  <%= f.number_field :four_till_five, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.four_till_five %>
+
+  <%= f.label  :five_till_six, "5h - 6h"  %>
+  <%= f.number_field :five_till_six, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.five_till_six %>
+
+  <%= f.label  :six_till_seven, "6h - 7h"  %>
+  <%= f.number_field :six_till_seven, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.six_till_seven %>
+
+  <%= f.label  :seven_till_eight, "7h - 8h"  %>
+  <%= f.number_field :seven_till_eight, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.seven_till_eight %>
+
+  <%= f.label  :eight_till_nine, "8h - 9h"  %>
+  <%= f.number_field :eight_till_nine, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.eight_till_nine %>
+
+  <%= f.label  :nine_till_ten, "9h - 10h"  %>
+  <%= f.number_field :nine_till_ten, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.nine_till_ten %>
+
+  <%= f.label  :ten_till_eleven, "10h - 11h"  %>
+  <%= f.number_field :ten_till_eleven, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.ten_till_eleven %>
+
+  <%= f.label  :eleven_till_twelve, "11h - 12h"  %>
+  <%= f.number_field :eleven_till_twelve, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.eleven_till_twelve %>
+
+  <%= f.label  :twelve_till_thirteen, "12h - 13h"  %>
+  <%= f.number_field :twelve_till_thirteen, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.twelve_till_thirteen %>
+
+  <%= f.label  :thirteen_till_fourteen, "13h - 14h"  %>
+  <%= f.number_field :thirteen_till_fourteen, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.thirteen_till_fourteen %>
+
+  <%= f.label  :fourteen_till_fifteen, "14h - 15h"  %>
+  <%= f.number_field :fourteen_till_fifteen, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.fourteen_till_fifteen %>
+
+  <%= f.label  :fifteen_till_sixteen, "15h - 16"  %>
+  <%= f.number_field :fifteen_till_sixteen, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.fifteen_till_sixteen %>
+
+  <%= f.label  :sixteen_till_seventeen, "16 - 17h"  %>
+  <%= f.number_field :sixteen_till_seventeen, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.sixteen_till_seventeen %>
+
+  <%= f.label  :seventeen_till_eightteen, "17h - 18h"  %>
+  <%= f.number_field :seventeen_till_eightteen, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.seventeen_till_eightteen %>
+
+  <%= f.label  :eightteen_till_nineteen, "18h - 19h"  %>
+  <%= f.number_field :eightteen_till_nineteen, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.eightteen_till_nineteen %>
+  
+  <%= f.label  :nineteen_till_twenty, "19h - 20h"  %>
+  <%= f.number_field :nineteen_till_twenty, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.nineteen_till_twenty %>
+
+  <%= f.label  :twenty_till_twentyone, "20h - 21h"  %>
+  <%= f.number_field :twenty_till_twentyone, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.twenty_till_twentyone %>
+
+  <%= f.label  :twentyone_till_twentytwo, "21h - 22h"  %>
+  <%= f.number_field :twentyone_till_twentytwo, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.twentyone_till_twentytwo %>
+
+  <%= f.label  :twentytwo_till_twentythree, "22h - 23h"  %>
+  <%= f.number_field :twentytwo_till_twentythree, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.twentytwo_till_twentythree %>
+
+  <%= f.label  :twentythree_till_zero, "23h - 0h"  %>
+  <%= f.number_field :twentythree_till_zero, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.twentythree_till_zero %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
+
+<%else%>
+
+<div class="collapse" id="collapseBU">
+  <div class="card card-body">
+  <h2 class="text-center">Carbohydrate(BU)-Factors</h2>
+<%= form_for(@bu_factor, url: user_bu_factors_path, method: :create) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label  :zero_till_one, "0h - 1h"  %>
+  <%= f.number_field :zero_till_one, class: 'form-control', min: 0.1, :step => 0.1 %>
+ 
+  <%= f.label  :one_till_two, "1h - 2h"  %>
+  <%= f.number_field :one_till_two, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :two_till_three, "2h - 3h"  %>
+  <%= f.number_field :two_till_three, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :three_till_four, "3h - 4h"  %>
+  <%= f.number_field :three_till_four, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :four_till_five, "4h - 5h"  %>
+  <%= f.number_field :four_till_five, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :five_till_six, "5h - 6h"  %>
+  <%= f.number_field :five_till_six, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :six_till_seven, "6h - 7h"  %>
+  <%= f.number_field :six_till_seven, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :seven_till_eight, "7h - 8h"  %>
+  <%= f.number_field :seven_till_eight, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :eight_till_nine, "8h - 9h"  %>
+  <%= f.number_field :eight_till_nine, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :nine_till_ten, "9h - 10h"  %>
+  <%= f.number_field :nine_till_ten, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :ten_till_eleven, "10h - 11h"  %>
+  <%= f.number_field :ten_till_eleven, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :eleven_till_twelve, "11h - 12h"  %>
+  <%= f.number_field :eleven_till_twelve, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :twelve_till_thirteen, "12h - 13h"  %>
+  <%= f.number_field :twelve_till_thirteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :thirteen_till_fourteen, "13h - 14h"  %>
+  <%= f.number_field :thirteen_till_fourteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :fourteen_till_fifteen, "14h - 15h"  %>
+  <%= f.number_field :fourteen_till_fifteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :fifteen_till_sixteen, "15h - 16"  %>
+  <%= f.number_field :fifteen_till_sixteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :sixteen_till_seventeen, "16 - 17h"  %>
+  <%= f.number_field :sixteen_till_seventeen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :seventeen_till_eightteen, "17h - 18h"  %>
+  <%= f.number_field :seventeen_till_eightteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :eightteen_till_nineteen, "18h - 19h"  %>
+  <%= f.number_field :eightteen_till_nineteen, class: 'form-control', min: 0.1, :step => 0.1 %>
+  
+  <%= f.label  :nineteen_till_twenty, "19h - 20h"  %>
+  <%= f.number_field :nineteen_till_twenty, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :twenty_till_twentyone, "20h - 21h"  %>
+  <%= f.number_field :twenty_till_twentyone, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :twentyone_till_twentytwo, "21h - 22h"  %>
+  <%= f.number_field :twentyone_till_twentytwo, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :twentytwo_till_twentythree, "22h - 23h"  %>
+  <%= f.number_field :twentytwo_till_twentythree, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.label  :twentythree_till_zero, "23h - 0h"  %>
+  <%= f.number_field :twentythree_till_zero, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
+<%end%>
+
+
+
+
+
+
+  </div>
+</div>
+
+<article>
+<p>
+<%if @user.diabetes_settings.exists?%>
+  <%= render @diabetes_settings%>
+
+<button class="btn btn-success diabsetbutton" type="button" data-toggle="collapse" data-target="#collapseBS" aria-expanded="false" aria-controls="collapseExample">
+    Set/Update Blood Sugar Target Range an Correcton Rule
+  </button>
+
+
+
+<div class="collapse" id="collapseBS">
+  <div class="card card-body">
+  <h2 class="text-center">Blood Sugar Target Range</h2>
+  <%= form_for(@diabetes_setting, url: user_diabetes_settings_path) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+     <%= f.label  :bs_min, "Bloodsugar Lower Limit (mg/dl)"  %>
+     <%= f.number_field :bs_min, class: 'form-control', min: 60, :step => 1, :value => @diabetes_settings.bs_min %>
+
+     <%= f.label  :bs_max, "Bloodsugar Upper Limit (mg/dl)"  %>
+     <%= f.number_field :bs_max, class: 'form-control', min: 60, :step => 1, :value => @diabetes_settings.bs_max %>
+
+     <%= f.label  :bs_target, "Bloodsugar Target (mg/dl)"  %>
+     <%= f.number_field :bs_target, class: 'form-control', min: 90, :step => 1, :value => @diabetes_settings.bs_target %>
+    <br>
+    <h2 class="text-center">Correction Factor</h2>
+
+     <%= f.label  :correction_number, "Bloodsugar Correction Value (mg/dl)"  %>
+     <%= f.number_field :correction_number, class: 'form-control', min: 1, :step => 1, :value => @diabetes_settings.correction_number %>
+
+     <%= f.label  :correction_insulin, "Insulin per Correction Value (U)"  %>
+     <%= f.number_field :correction_insulin, class: 'form-control', min: 0.1, :step => 0.1, :value => @diabetes_settings.correction_insulin %>
+
+     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+     
+     <%end%>
+
+  <%else%>
+<button class="btn btn-success diabsetbutton" type="button" data-toggle="collapse" data-target="#collapseBS" aria-expanded="false" aria-controls="collapseExample">
+    Set/Update Blood Sugar Target Range an Correcton Rule
+  </button>
+      <div class="collapse" id="collapseBS">
+  <div class="card card-body">
+  <h2 class="text-center">Blood Sugar Target Range</h2>
+  <%= form_for(@diabetes_setting, url: user_diabetes_settings_path) do |f| %>
+     <%= render 'shared/error_messages', object: f.object %>
+     <%= f.label  :bs_min, "Bloodsugar Minimum"  %>
+     <%= f.number_field :bs_min, class: 'form-control', min: 60, :step => 1 %>
+
+     <%= f.label  :bs_max, "Bloodsugar Maximum"  %>
+     <%= f.number_field :bs_max, class: 'form-control', min: 60, :step => 1 %>
+
+     <%= f.label  :bs_target, "Bloodsugar Target"  %>
+     <%= f.number_field :bs_target, class: 'form-control', min: 90, :step => 1 %>
+      
+      <br>
+      <h2 class="text-center">Correction Factor</h2>
+
+     <%= f.label  :correction_number, "Bloodsugar Correction Value"  %>
+     <%= f.number_field :correction_number, class: 'form-control', min: 1, :step => 1 %>
+
+     <%= f.label  :correction_insulin, "Insulin per Correction Value"  %>
+     <%= f.number_field :correction_insulin, class: 'form-control', min: 0.1, :step => 0.1 %>
+
+     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+
+    <% end %>
+  <%end%>
+  </div>
+  </div>
+  </p>
+  </article>
+  

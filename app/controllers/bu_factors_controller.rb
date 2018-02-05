@@ -5,10 +5,10 @@ class BuFactorsController < ApplicationController
     @bu_factors = current_user.bu_factors.build(bu_factor_params)   
     if @bu_factors.save
       flash[:success] = "Bu Factors updated"
-      redirect_to edit_diabsettings_path(current_user)
+      redirect_to new_user_diabetes_setting_path
     else
       flash[:danger] = "Bu Factors couldn't be updated"
-      render "users/edit_diabsettings", :locals => { :user =>  @user = @current_user, :bu_factor => @bu_factor = @bu_factors, :diabetes_setting => @diabetes_setting = @current_user.diabetes_settings.build, :curr_factor => @curr_factors = @user.bu_factors.last, :diabetes_settings => @diabetes_settings = @user.diabetes_settings.last}
+      render "diabetes_settings/new", :locals => { :user =>  @user = @current_user, :bu_factor => @bu_factor = @bu_factors, :diabetes_setting => @diabetes_setting = @current_user.diabetes_settings.build, :curr_factor => @curr_factors = @user.bu_factors.last, :diabetes_settings => @diabetes_settings = @user.diabetes_settings.last}
     end
   end
 
