@@ -22,7 +22,7 @@
   <div class="card card-body">
   <h2 class="text-center">Carbohydrate(BU)-Factors</h2>
 <%= form_for(@bu_factor) do |f| %>
-  <%= render 'shared/error_messages', object: @bu_factor %>
+  <%= render 'shared/error_messages', object: f.object %>
 
   <%= f.label  :zero_till_one, "0h - 1h"  %>
   <%= f.number_field :zero_till_one, class: 'form-control', min: 0.1, :step => 0.1, :value => @curr_factors.zero_till_one %>
@@ -105,7 +105,7 @@
   <div class="card card-body">
   <h2 class="text-center">Carbohydrate(BU)-Factors</h2>
 <%= form_for(@bu_factor) do |f| %>
-  <%= render 'shared/error_messages', object: @bu_factor %>
+  <%= render 'shared/error_messages', object: f.object %>
 
   <%= f.label  :zero_till_one, "0h - 1h"  %>
   <%= f.number_field :zero_till_one, class: 'form-control', min: 0.1, :step => 0.1 %>
