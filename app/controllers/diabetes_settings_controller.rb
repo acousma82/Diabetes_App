@@ -1,5 +1,10 @@
 class DiabetesSettingsController < ApplicationController
     
+     #before filter
+     before_action :logged_in_user, only: [:new, :create] 
+     before_action :correct_user,   only: [:new, :create]
+  
+
     def new
         @user = User.find(params[:user_id])
         @curr_factors = @user.bu_factors.last || []
@@ -19,7 +24,24 @@ class DiabetesSettingsController < ApplicationController
         end
     end
 private
-    def diabetes_setting_params
-        params.require(:diabetes_setting).permit(:bs_min, :bs_max, :bs_target, :correction_number, :correction_insulin)
-    end
+        def diabetes_setting_params
+            params.require(:diabetes_setting).permit(:bs_min, :bs_max, :bs_target, :correction_number, :correction_insulin)
+        end
+
+        # Before filters
+
+    
+        # Confirms the correct (logged-in) user. the admin is always the correct user.
+        def correct_user
+            @user = User.find(params[:user_id])
+            unless current_user?(@user) || current_user.admin?
+            flash[:danger] = "It is not possible to access other users diaries"
+            redirect_to(root_url) 
+            end  
+        
+        end
+
+        def admin_user
+            redirect_to(root_url) unless current_user.admin?
+        end
 end
