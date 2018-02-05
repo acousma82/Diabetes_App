@@ -16,14 +16,14 @@ Rails.application.routes.draw do
     post '/diaryentry',  to: 'diary_entries#create', as: :diary_entry
     get '/diaryentry',  to: 'diary_entries#new'
 
-    resources :users, except: [:new]
+    resources :users, except: [:new] do
+      resources :diabetes_settings, only: [:new, :create, :edit, :update, :index]
+      resources :bu_factors, only: [:new, :create, :edit, :update, :index]
+    end
+      
     resources :account_activations, only: [:edit]
     resources :password_resets,     only: [:new, :create, :edit, :update]  
     resources :diary_entries
-    resources :diabetes_settings, only:[:new, :create, :edit, :update]
-    resources :bu_factors,  only: [:create]
   end
 
 
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
