@@ -7,14 +7,13 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 #bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.
 gem 'bootstrap'
-#gem 'bootstrap-sass',          '3.3.7'
 #will_paginate provides a simple API for performing paginated queries with Active Record, DataMapper and Sequel, 
 #and includes helpers for rendering pagination links in Rails, Sinatra and Merb web apps 
 gem 'will_paginate',           '3.1.6'
@@ -22,13 +21,7 @@ gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
