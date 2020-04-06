@@ -6,7 +6,11 @@ class UsersController < ApplicationController
       before_action :admin_user,     only: [:index, :destroy]
     
     
-    #User.paginate(available via the will-paginate gem) pulls the users out of the database one chunk at a time (30 by default), based on the :page parameter. So, for example, page 1 is users 1–30, page 2 is users 31–60, etc. If page is nil, paginate simply returns the first page.Here the page parameter comes from params[:page], which is generated automatically by will_paginate inside the view.
+    #User.paginate(available via the will-paginate gem) pulls the users out of the database 
+    #one chunk at a time (30 by default), based on the :page parameter. So, for example, 
+    #page 1 is users 1–30, page 2 is users 31–60, etc. If page is nil, paginate simply returns 
+    #the first page.Here the page parameter comes from params[:page], which is generated automatically
+    #by will_paginate inside the view.
   def index
     @users = User.paginate(page: params[:page]) 
   end

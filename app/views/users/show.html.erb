@@ -12,38 +12,35 @@
   </aside>
   <div class="col-md-12">
   <h3 class="text-center">My Diabetes Diary </h3>
-    <% if @user.diary_entries.any? %>
+    <% if @diary_entries.present? %>
     
-<%= will_paginate @diary_entries %>
-
-     <table class="table table-dark">
-    
-
-      <tbody class="diary_entries">
-      <% current_day = nil %>
-      <% @diary_entries.each do |de| %>
-          <% if current_day != de.created_at.strftime("%d.%m.%y") %>
-            </tbody>
-            </table>
-            <h4 ><%= de.created_at.strftime("%A, %b %e") %></h4>
-            <table class="table table-bordered table-dark">
-            <tbody class="diary_entries">
-              <thead> 
-                <tr>
-                  <th scope="col">Time</th>
-                  <th scope="col">Bloodsugar</th>
-                  <th scope="col">Bread Units</th>
-                  <th scope="col">Injected Insulin</th>
-                  <th scope="col">Comment</th>
-               </tr>
-              </thead>
-              <% current_day = de.created_at.strftime("%d.%m.%y") %>
+      <%= will_paginate @diary_entries %>
+        <table class="table table-dark">
+          <tbody class="diary_entries">
+          <% current_day = nil %>
+          <% @diary_entries.each do |de| %>
+              <% if current_day != de.created_at.strftime("%d.%m.%y") %>
+                </tbody>
+                </table>
+                <h4 ><%= de.created_at.strftime("%A, %b %e") %></h4>
+                <table class="table table-bordered table-dark">
+                <tbody class="diary_entries">
+                  <thead> 
+                    <tr>
+                      <th scope="col">Time</th>
+                      <th scope="col">Bloodsugar</th>
+                      <th scope="col">Bread Units</th>
+                      <th scope="col">Injected Insulin</th>
+                      <th scope="col">Comment</th>
+                    </tr>
+                  </thead>
+                  <% current_day = de.created_at.strftime("%d.%m.%y") %>
+              <% end %>
+            <%= render partial: 'diary_entries/diary_entry', locals: { diary_entry: de } %>
           <% end %>
-        <%= render partial: 'diary_entries/diary_entry', locals: { diary_entry: de } %>
-      <% end %>
-      </tbody>
-      </table>
-         <%= will_paginate @diary_entries %>
+          </tbody>
+        </table>
+      <%= will_paginate @diary_entries %>
 
     <% end %>
   </div>
