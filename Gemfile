@@ -32,7 +32,7 @@ gem 'gon'
 gem 'faker'
 gem 'jquery-rails', '4.3.1'
 # Use carrierwave for uploading images
-gem 'carrierwave',             '1.1.0'
+gem 'carrierwave',             '1.3.2'
 # Use mini-magick to automatically minimize pictures
 gem 'mini_magick',             '4.9.4'
 #Use fog-aws to use amazon web services in applications
